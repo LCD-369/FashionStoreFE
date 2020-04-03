@@ -25,6 +25,7 @@ import { OrderService } from './services/order.service';
 import { MemberService } from './services/member.service';
 import { CouponService } from './services/coupon.service';
 import { PageLoginFirstComponent } from './page-login-first/page-login-first.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { PageLoginFirstComponent } from './page-login-first/page-login-first.com
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthService, AuthGuardService, OrderService, ProductService, MemberService, CouponService],
   bootstrap: [AppComponent]

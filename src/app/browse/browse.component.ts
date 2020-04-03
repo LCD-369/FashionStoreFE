@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-browse',
   templateUrl: './browse.component.html',
@@ -12,7 +10,6 @@ export class BrowseComponent implements OnInit {
   type: String;
   gender: String;
   category: String;
-
 
   constructor(private route: ActivatedRoute) { }
 
