@@ -36,14 +36,18 @@ export class ProductService {
 
   //Find & retreive all products by gender
   getProductsByGender(gender: string): Observable<Product[]> {
-    return this.http.get<Product[]>(this.getUrl + "/" + gender)
+    return this.http.get<Product[]>(this.getUrl + "/gender" + "/" + gender)
       .pipe(catchError(this.handleError));
   }
 
   //Find & retreive all products by category
   getProductsByCategory(category: string): Observable<Product[]> {
-    return this.http.get<Product[]>(this.getUrl + "/" + category)
+    return this.http.get<Product[]>(this.getUrl + "/category" + "/" + category)
       .pipe(catchError(this.handleError));
   }
-
+  //Find & retreive all products by gender & category
+  getProductsByCatGen(gender: string, category: string): Observable<Product[]> {
+    return this.http.get<Product[]>(this.getUrl + "/gender" + "/category" + "/" + gender + "/" + category)
+      .pipe(catchError(this.handleError));
+  }
 }

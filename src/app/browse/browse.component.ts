@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { ProductService } from '../services/product.service';
+import { Product } from '../models/product';
 
 @Component({
   selector: 'app-browse',
@@ -7,11 +9,12 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./browse.component.css']
 })
 export class BrowseComponent implements OnInit {
-  type: String;
-  gender: String;
-  category: String;
+  type: string;
+  gender: string;
+  category: string;
+  products: Array<Product>;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -21,12 +24,38 @@ export class BrowseComponent implements OnInit {
         this.category = params['category'];
       }
     );
+    this.getQueryInfo(this.gender, this.category);
   }
 
-  ngOnDestroy(): void {
-    this.type = new String();
-    this.gender = new String();
-    this.category = new String();
+  getQueryInfo(gender: string, category: string) {
+    let gen = gender;
+    let cat = category;
+    switch (cat) {
+
+         case undefined:
+              this.productService.getProducts().subscribe(res => {
+                this.products = res;
+              });
+            break;
+
+         case "Children":
+              this.productService.getProductsByCategory(this.category).subscribe(res => {
+                this.products = res;
+              });
+            break;
+
+         case "Adult":
+              this.productService.getProductsByCatGen(this.gender, this.category).subscribe(res => {
+                this.products = res;
+              })
+            break;
+
+         default:
+         this.productService.getProducts().subscribe(res => {
+           this.products = res;
+         });
+            break;
   }
+}
 
 }

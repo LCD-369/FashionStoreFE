@@ -1,12 +1,12 @@
 export class Product {
-  pk: string;
-  sk: string;
-  productid: string;
-  productname: string;
-  gender: string;
-  size: string;
-  quantity: string;
-  type: string;
-  price: string;
-  category: string;
+  PK: string;
+  SK: string;
+  PRODUCTID: string;
+  PRODUCTNAME: string;
+  GENDER: string;
+  SIZE: string;
+  QUANTITY: string;
+  TYPE: string;
+  PRICE: string;
+  CATEGORY: string;
 }
