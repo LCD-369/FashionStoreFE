@@ -1,0 +1,18 @@
+<div class="container" *ngIf="ShowParentComponent">
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let product of products">
+      <h3 class="m-auto text-dark"><i>{{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</i></h3>
+      <img width="auto" height="200" src={{product.IMAGE}} alt="Photo">
+      <mat-grid-tile-footer [style.background]="'white'"><button type="button" class="btn btn-outline-dark btn-lg btn-block p-1" (click)="onLoadDetails(product)">View Product</button></mat-grid-tile-footer>
+  </mat-grid-tile>
+</mat-grid-list>
+<hr />
+<mat-paginator [length]="length"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="pageEvent = $event">
+</mat-paginator>
+</div>
+<div class="container">
+  <app-product-detail *ngIf="showChildComponent" [currentProduct]="currentProduct"></app-product-detail>
+</div>

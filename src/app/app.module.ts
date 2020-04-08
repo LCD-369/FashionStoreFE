@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {MatGridListModule} from '@angular/material/grid-list';
-
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,11 @@ import { MemberService } from './services/member.service';
 import { CouponService } from './services/coupon.service';
 import { PageLoginFirstComponent } from './page-login-first/page-login-first.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowseWomenComponent } from './browse-women/browse-women.component';
+import { BrowseMenComponent } from './browse-men/browse-men.component';
+import { BrowseChildrenComponent } from './browse-children/browse-children.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { cartItemReducer } from './cart/store/cart.reducer';
 
 @NgModule({
   declarations: [
@@ -42,7 +48,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     JumbotronComponent,
     BrowseComponent,
     PageNotFoundComponent,
-    PageLoginFirstComponent
+    PageLoginFirstComponent,
+    BrowseWomenComponent,
+    BrowseMenComponent,
+    BrowseChildrenComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +61,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatPaginatorModule,
+    StoreModule.forRoot({cartItemReducer: cartItemReducer})
   ],
   providers: [AuthService, AuthGuardService, OrderService, ProductService, MemberService, CouponService],
   bootstrap: [AppComponent]

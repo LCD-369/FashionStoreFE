@@ -1,1 +1,9 @@
-<p>cart works!</p>
+<div class="container">
+  <p>
+    Test
+    </p>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let product of (products | async).products">{{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</li>
+  </ul>
+</div>
+  <!-- <button *ngFor="let product of products" type="button" class="list-group-item list-group-item-action">{{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</button> -->

@@ -17,6 +17,9 @@ export class BrowseComponent implements OnInit {
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit() {
+    this.type = null;
+    this.gender = null;
+    this.category = null;
     this.route.params.subscribe(
       (params: Params) => {
         this.type = params['type'];

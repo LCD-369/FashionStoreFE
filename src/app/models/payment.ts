@@ -1,4 +1,4 @@
 export class Payment {
-  pk: string;
+  PK: string;
   sk: string;
 }
