@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { StoreModule } from '@ngrx/store';
 
+import * as fromApp from './store/app.reducer';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -20,8 +23,6 @@ import { FooterComponent } from './footer/footer.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { BrowseComponent } from './browse/browse.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AuthService } from './auth.service';
-import { AuthGuardService } from './auth-guard.service';
 import { ProductService } from './services/product.service';
 import { OrderService } from './services/order.service';
 import { MemberService } from './services/member.service';
@@ -32,7 +33,9 @@ import { BrowseWomenComponent } from './browse-women/browse-women.component';
 import { BrowseMenComponent } from './browse-men/browse-men.component';
 import { BrowseChildrenComponent } from './browse-children/browse-children.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { cartItemReducer } from './cart/store/cart.reducer';
+import { AuthEffects } from './auth/store/auth.effects';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core.module';
 
 @NgModule({
   declarations: [
@@ -63,9 +66,13 @@ import { cartItemReducer } from './cart/store/cart.reducer';
     BrowserAnimationsModule,
     MatGridListModule,
     MatPaginatorModule,
-    StoreModule.forRoot({cartItemReducer: cartItemReducer})
+    EffectsModule.forRoot([AuthEffects]),
+    StoreModule.forRoot(fromApp.appReducer),
+    StoreRouterConnectingModule.forRoot(),
+    SharedModule,
+    CoreModule
   ],
-  providers: [AuthService, AuthGuardService, OrderService, ProductService, MemberService, CouponService],
+  providers: [OrderService, ProductService, MemberService, CouponService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

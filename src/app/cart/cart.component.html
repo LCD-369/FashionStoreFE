@@ -1,9 +1,8 @@
-<div class="container">
-  <p>
-    Test
-    </p>
+<div class="container text-center">
+  <h1 class="">Shopping Cart</h1>
+  <h1 *ngIf="checkIfCartIsEmpty()"><i>No items in cart</i></h1>
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let product of (products | async).products">{{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</li>
+    <li class="list-group-item" *ngFor="let product of (items | async).cartItems; index as i">{{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}
+      <button type="button" class="btn btn-outline-dark" (click)="removeFromCart(i)">Remove Item</button></li>
   </ul>
 </div>
-  <!-- <button *ngFor="let product of products" type="button" class="list-group-item list-group-item-action">{{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</button> -->

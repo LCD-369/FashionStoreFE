@@ -11,14 +11,13 @@ import * as ShoppingListActions from '../cart/store/cart.actions';
 })
 export class ProductDetailComponent implements OnInit {
   @Input() currentProduct: Product;
-  products: Observable<{cartIems: Product[] }>;
-
+  
   constructor(
     private store: Store<{cartItemReducer: {cartIems: Product[]} }>
   ) { }
 
   ngOnInit() {
-    this.products = this.store.select('cartItemReducer');
+
   }
 
   addProductToCart() {

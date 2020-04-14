@@ -7,7 +7,7 @@ import { BrowseChildrenComponent } from './browse-children/browse-children.compo
 import { BrowseMenComponent } from './browse-men/browse-men.component';
 import { BrowseWomenComponent } from './browse-women/browse-women.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AuthGuardService } from './auth-guard.service';
+import { AuthGuardService } from './auth/auth-guard.service';
 import { PageLoginFirstComponent } from './page-login-first/page-login-first.component';
 
 

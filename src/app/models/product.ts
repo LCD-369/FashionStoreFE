@@ -1,14 +1,17 @@
 export class Product {
-  category: string;
-  productid: string;
-  size: string;
-  image: string;
-  color: string;
-  sk: string;
-  year: string;
-  price: string;
-  pk: string;
-  gender: string;
-  quantity: string;
-  type: string;
+
+  constructor() {}
+
+  public category: string;
+  public productid: string;
+  public size: string;
+  public image: string;
+  public color: string;
+  public sk: string;
+  public year: string;
+  public price: string;
+  public pk: string;
+  public gender: string;
+  public quantity: string;
+  public type: string;
 }
