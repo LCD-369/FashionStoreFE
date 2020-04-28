@@ -8,6 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core.module';
 
 import * as fromApp from './store/app.reducer';
 import { AppRoutingModule } from './app-routing.module';
@@ -34,8 +36,10 @@ import { BrowseMenComponent } from './browse-men/browse-men.component';
 import { BrowseChildrenComponent } from './browse-children/browse-children.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { AuthEffects } from './auth/store/auth.effects';
-import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core.module';
+import { AuthComponent } from './auth/auth.component';
+import { BrowseShoeComponent } from './browse-shoe/browse-shoe.component';
+import { BrowseAccessoryComponent } from './browse-accessory/browse-accessory.component';
+
 
 @NgModule({
   declarations: [
@@ -55,7 +59,10 @@ import { CoreModule } from './core.module';
     BrowseWomenComponent,
     BrowseMenComponent,
     BrowseChildrenComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    AuthComponent,
+    BrowseShoeComponent,
+    BrowseAccessoryComponent
   ],
   imports: [
     BrowserModule,

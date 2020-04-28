@@ -32,11 +32,11 @@ export class HeaderComponent implements OnInit {
   }
 
   onLoadShoesBrowse() {
-    this.router.navigate(['browse', 'Shoe', '', '']);
+    this.router.navigate(['browse/shoes']);
   }
 
   onLoadAccessoryBrowse() {
-    this.router.navigate(['browse', 'Accessory', '', '']);
+    this.router.navigate(['browse/accessory']);
   }
 
   onLoadProfile() {
@@ -45,6 +45,10 @@ export class HeaderComponent implements OnInit {
 
   onLoadCart() {
     this.router.navigate(['cart']);
+  }
+
+  onLoadLogin() {
+    this.router.navigate(['auth']);
   }
 
 }
