@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../store/app.reducer';
+import * as AuthActions from '../auth/store/auth.actions';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +12,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  isAuthenticated = false;
+  private userSub: Subscription;
+  constructor(private router: Router, private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
     this.router.navigate(['home']);
+    this.userSub = this.store
+      .select('auth')
+      .pipe(map(authState => authState.user))
+      .subscribe(user => {
+        this.isAuthenticated = !!user;
+        console.log(!user);
+        console.log(!!user);
+      });
   }
 
+  onLogout(){
+    this.store.dispatch(new AuthActions.Logout());
+  }
 
   onLoadHome() {
     this.router.navigate(['/home']);
@@ -49,6 +66,10 @@ export class HeaderComponent implements OnInit {
 
   onLoadLogin() {
     this.router.navigate(['auth']);
+  }
+
+  ngOnDestroy() {
+    this.userSub.unsubscribe();
   }
 
 }

@@ -59,7 +59,7 @@ export class AuthEffects {
   //Http POST to add new account user
   authSignup = this.actions$.pipe(ofType(AuthActions.SIGNUP_START),
     switchMap((signupAction: AuthActions.SignupStart) => {
-      return this.http.post<AuthResponseData>('', {
+      return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBOdpnSIE5nhMaYeRcaJAhpfxRW0xDnd1Y', {
         email: signupAction.payload.email,
         password: signupAction.payload.password,
         returnSecureToken: true
@@ -83,7 +83,7 @@ export class AuthEffects {
   @Effect()
   authLogin = this.actions$.pipe(ofType(AuthActions.LOGIN_START),
     switchMap((authData: AuthActions.LoginStart) => {
-      return this.http.post<AuthResponseData>('', {
+      return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBOdpnSIE5nhMaYeRcaJAhpfxRW0xDnd1Y', {
         email: authData.payload.email,
         password: authData.payload.password,
         returnSecureToken: true
