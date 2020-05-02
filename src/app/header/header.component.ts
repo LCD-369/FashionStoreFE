@@ -1,10 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../store/app.reducer';
 import * as AuthActions from '../auth/store/auth.actions';
+import { AlertComponent } from '../shared/alert/alert.component';
+import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
 
 @Component({
   selector: 'app-header',
@@ -12,9 +14,14 @@ import * as AuthActions from '../auth/store/auth.actions';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
   isAuthenticated = false;
+  productsInCart = false;
   private userSub: Subscription;
-  constructor(private router: Router, private store: Store<fromApp.AppState>) { }
+  private closeSub: Subscription;
+  private cartSub: Subscription;
+  cartLength: number;
+  constructor(private router: Router, private store: Store<fromApp.AppState>, private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
     this.router.navigate(['home']);
@@ -26,10 +33,21 @@ export class HeaderComponent implements OnInit {
         console.log(!user);
         console.log(!!user);
       });
+
+      this.cartSub = this.store
+        .select('cartItems')
+        .pipe(map(cartState => cartState.cartItems))
+        .subscribe(products => {
+          this.productsInCart = !!products;
+          this.cartLength = products.length;
+          console.log(!products);
+          console.log(!!products);
+        });
   }
 
-  onLogout(){
+  onLogout() {
     this.store.dispatch(new AuthActions.Logout());
+    this.showAlert();
   }
 
   onLoadHome() {
@@ -70,6 +88,24 @@ export class HeaderComponent implements OnInit {
 
   ngOnDestroy() {
     this.userSub.unsubscribe();
+  }
+
+  private showAlert() {
+
+    const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
+      AlertComponent
+    );
+    const hostViewContainerRef = this.alertHost.viewContainerRef;
+    hostViewContainerRef.clear();
+
+    const componentRef = hostViewContainerRef.createComponent(alertCmpFactory);
+
+    componentRef.instance.message = 'User successfully logged off.';
+
+    this.closeSub = componentRef.instance.close.subscribe(() => {
+      this.closeSub.unsubscribe();
+      hostViewContainerRef.clear();
+    });
   }
 
 }

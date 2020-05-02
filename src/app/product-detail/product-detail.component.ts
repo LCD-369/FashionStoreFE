@@ -1,8 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 import * as ShoppingListActions from '../cart/store/cart.actions';
+import { Subscription } from 'rxjs';
+import { AlertComponent } from '../shared/alert/alert.component';
+import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
+
 
 @Component({
   selector: 'app-product-detail',
@@ -10,10 +13,13 @@ import * as ShoppingListActions from '../cart/store/cart.actions';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
+  @ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
   @Input() currentProduct: Product;
-  
+  private closeSub: Subscription;
+
   constructor(
-    private store: Store<{cartItemReducer: {cartIems: Product[]} }>
+    private store: Store<{cartItemReducer: {cartIems: Product[]} }>,
+    private componentFactoryResolver: ComponentFactoryResolver
   ) { }
 
   ngOnInit() {
@@ -22,6 +28,25 @@ export class ProductDetailComponent implements OnInit {
 
   addProductToCart() {
     this.store.dispatch(new ShoppingListActions.AddProduct(this.currentProduct));
+    this.showAlert();
+  }
+
+  private showAlert() {
+
+    const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
+      AlertComponent
+    );
+    const hostViewContainerRef = this.alertHost.viewContainerRef;
+    hostViewContainerRef.clear();
+
+    const componentRef = hostViewContainerRef.createComponent(alertCmpFactory);
+
+    componentRef.instance.message = 'Product added to cart.';
+
+    this.closeSub = componentRef.instance.close.subscribe(() => {
+      this.closeSub.unsubscribe();
+      hostViewContainerRef.clear();
+    });
   }
 
 }

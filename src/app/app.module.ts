@@ -39,6 +39,7 @@ import { AuthEffects } from './auth/store/auth.effects';
 import { AuthComponent } from './auth/auth.component';
 import { BrowseShoeComponent } from './browse-shoe/browse-shoe.component';
 import { BrowseAccessoryComponent } from './browse-accessory/browse-accessory.component';
+import { LogoComponent } from './logo/logo.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { BrowseAccessoryComponent } from './browse-accessory/browse-accessory.co
     ProductDetailComponent,
     AuthComponent,
     BrowseShoeComponent,
-    BrowseAccessoryComponent
+    BrowseAccessoryComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
