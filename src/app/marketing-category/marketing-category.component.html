@@ -1,22 +1,36 @@
-<div class="container marketing">
-    <div class="row">
-      <div class="col-lg-4">
-        <img src="assets/images/wf2.jpg" class="bd-placeholder-img rounded-circle"  width="200" height="200" alt="...">
-        <h2>Shop Women Apperel</h2>
-        <p>New styles hitting our shelves every week, there's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, bodysuits, skirts and more.</p>
-        <p><a class="btn btn-secondary text-white" (click)="onLoadFemaleBrowse()" role="button">Shop women &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <img src="assets/images/mf2.jpg" class="bd-placeholder-img rounded-circle"  width="200" height="200" alt="...">
-        <h2>Shop Men Apperel</h2>
-        <p>Find Stylish and Classy Clothing For Men. Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.</p>
-        <p><a class="btn btn-secondary text-white" (click)="onLoadMaleBrowse()" role="button">Shop men &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <img src="assets/images/cld3.jpg" class="bd-placeholder-img rounded-circle"  width="auto" height="200" alt="...">
-        <h2>Shop Children Apperel</h2>
-        <p>Designer New in of Clothing & Accessories for kids. Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.</p>
-        <p><a class="btn btn-secondary text-white" (click)="onLoadChildrenBrowse()" role="button">Shop children &raquo;</a></p>
-      </div>
+<div class="container-fluid">
+  <div class="jumbotron p-4 text-white rounded bg-dark text-center">
+    <div class="col-auto bg-dark pb-2">
+      <h1 class="display-4 font-italic">SPRING AND SUMMER SALE</h1>
+      <p class="lead">Receive a 10% discount at checkout for all spring and summer apperel.</p>
     </div>
+    <br />
   </div>
+</div>
+
+<div class="container-fluid marketing">
+  <div class="row">
+
+    <div class="col-lg-4 p-1 border rounded shadow-sm">
+      <h3 class="text-white bg-dark p-2 rounded">Shop Women Apperel</h3>
+      <img src="assets/images/women/plaintfemalelargenavyblue2020.jpg" class="bd-placeholder-img rounded" width="auto" height="200" alt="...">
+      <p class="text-dark">New styles hitting our shelves every week, there's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.</p>
+      <div><a class="btn btn-dark text-white" (click)="onLoadFemaleBrowse()" role="button">Shop women &raquo;</a></div>
+    </div>
+
+    <div class="col-lg-4 p-1 border rounded shadow-sm">
+      <h3 class="text-white bg-dark p-2 rounded">Shop Men Apperel</h3>
+      <img src="assets/images/men/plaintmalelargered2020.jpg" class="bd-placeholder-img rounded" width="auto" height="200" alt="...">
+      <p class="text-dark">Find Stylish and Classy Clothing For Men. Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.</p>
+      <div><a class="btn btn-dark text-white" (click)="onLoadMaleBrowse()" role="button">Shop men &raquo;</a></div>
+    </div>
+
+    <div class="col-lg-4 p-1 border rounded shadow-sm">
+      <h3 class="text-white bg-dark p-2 rounded">Shop Children Apperel</h3>
+      <img src="assets/images/children/a-large.jpg" class="bd-placeholder-img rounded" width="auto" height="200" alt="...">
+      <p class="text-dark">Designer New in of Clothing & Accessories for kids. Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.</p>
+      <div><a class="btn btn-dark text-white" (click)="onLoadChildrenBrowse()" role="button">Shop children &raquo;</a></div>
+    </div>
+
+  </div>
+</div>

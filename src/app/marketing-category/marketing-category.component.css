@@ -2,6 +2,15 @@
   margin-bottom: 1.5rem;
   text-align: center;
 }
+
+.marketing-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/assets/images/lights3.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: block;
+  padding: 5px;
+}
 .marketing h2 {
   font-weight: 400;
 }

@@ -16,15 +16,15 @@ export class MarketingCategoryComponent implements OnInit {
   }
 
   onLoadMaleBrowse() {
-    this.router.navigate(['browse', '', 'Male', 'Adult']);
+    this.router.navigate(['browse/men']);
   }
 
   onLoadFemaleBrowse() {
-    this.router.navigate(['browse', '', 'Female', 'Adult']);
+    this.router.navigate(['browse/women']);
   }
 
   onLoadChildrenBrowse() {
-    this.router.navigate(['browse', '', '', 'Children']);
+    this.router.navigate(['browse/children']);
   }
 
 }

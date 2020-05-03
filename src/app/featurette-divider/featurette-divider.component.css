@@ -1,9 +1,10 @@
+
 .marketing .col-lg-4 {
   margin-bottom: 1.5rem;
   text-align: center;
 }
 .marketing h2 {
-  font-weight: 400;
+  font-weight: 300;
 }
 .marketing .col-lg-4 p {
   margin-right: .75rem;
@@ -11,7 +12,7 @@
 }
 
 .featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  margin: 2rem 0; /* Space out the Bootstrap <hr> more */
 }
 
 /* Thin out the marketing headings */
