@@ -7,8 +7,8 @@
         <a class="text-dark" href="#">Subscribe</a>
       </div>
       <div class="col-5 d-flex justify-content-end align-items-center text-dark">
-        <a class="grow btn btn-sm" (click)="onLoadCart()">Cart <span *ngIf="productsInCart">({{cartLength}})</span></a>
-        <a class="grow btn btn-sm" (click)="onLoadProfile()"><i class="fas fa-shopping-cart"></i></a>
+        <a class="grow btn btn-sm" (click)="onLoadCart()"><fa-icon [icon]="faShoppingCart" size="2x"></fa-icon><span *ngIf="productsInCart">({{cartLength}})</span></a>
+        <a class="grow btn btn-sm" (click)="onLoadProfile()"><fa-icon [icon]="faUser" size="2x"></fa-icon></a>
         <a *ngIf="isAuthenticated" class="grow btn btn-sm" (click)="onLogout()">Logout</a>
       </div>
     </div>

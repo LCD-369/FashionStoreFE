@@ -13,7 +13,7 @@ import { PlaceholderDirective } from '../shared/placeholder/placeholder.directiv
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  @ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
+  @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;
   @Input() currentProduct: Product;
   private closeSub: Subscription;
 

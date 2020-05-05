@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy, ComponentFactoryResolver, ViewChild, AfterViewInit } from '@angular/core';
-import { MediaObserver, MediaChange } from '@angular/flex-layout';
+import { Component, OnInit, OnDestroy, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -8,7 +7,7 @@ import * as fromApp from '../store/app.reducer';
 import * as AuthActions from '../auth/store/auth.actions';
 import { AlertComponent } from '../shared/alert/alert.component';
 import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
-
+import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -16,24 +15,18 @@ import { PlaceholderDirective } from '../shared/placeholder/placeholder.directiv
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
+  @ViewChild(PlaceholderDirective, {static: false}) alertHost: PlaceholderDirective;
   isAuthenticated = false;
   productsInCart = false;
   private userSub: Subscription;
   private closeSub: Subscription;
   private cartSub: Subscription;
   cartLength: number;
-  smNav: boolean;
-  // Subscription of the observer of the screen size
-  watcher: Subscription;
-  // The active media query (xs | sm | md | lg | xl)
-  activeMediaQuery: string;
+  faShoppingCart = faShoppingCart;
+  faUser = faUser;
 
   constructor(private router: Router, private store: Store<fromApp.AppState>,
-    private componentFactoryResolver: ComponentFactoryResolver,
-    private mediaObserver: MediaObserver) {
-
-  }
+    private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit() {
     this.router.navigate(['home']);
@@ -56,25 +49,6 @@ export class HeaderComponent implements OnInit {
         console.log(!products);
         console.log(!!products);
       });
-  }
-
-   ngAfterViewInit() {
-     this.watcher = this.mediaObserver.media$.subscribe((change: MediaChange) => {
-       this.activeMediaQuery = change ? `'${change.mqAlias}' = (${change.mediaQuery})` : '';
-       if (change.mqAlias == 'xs' || change.mqAlias == 'sm') {
-         this.loadMobileContent();
-       } if (change.mqAlias == 'md' || change.mqAlias == 'lg' || change.mqAlias == 'xl')  {
-         this.loadBrowserContent();
-       }
-     });
-   }
-
-  loadMobileContent() {
-    this.smNav = true;
-  }
-
-  loadBrowserContent() {
-    this.smNav = false;
   }
 
   onLogout() {
@@ -120,7 +94,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnDestroy() {
     this.userSub.unsubscribe();
-    this.watcher.unsubscribe();
   }
 
   private showAlert() {

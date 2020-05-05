@@ -8,8 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
-import {NgxPaginationModule} from 'ngx-pagination';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 import * as fromApp from './store/app.reducer';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +23,6 @@ import { FeaturetteDividerComponent } from './featurette-divider/featurette-divi
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
-import { BrowseComponent } from './browse/browse.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductService } from './services/product.service';
 import { OrderService } from './services/order.service';
@@ -41,6 +40,7 @@ import { BrowseShoeComponent } from './browse-shoe/browse-shoe.component';
 import { BrowseAccessoryComponent } from './browse-accessory/browse-accessory.component';
 import { LogoComponent } from './logo/logo.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -55,7 +55,6 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     HeaderComponent,
     FooterComponent,
     JumbotronComponent,
-    BrowseComponent,
     PageNotFoundComponent,
     PageLoginFirstComponent,
     BrowseWomenComponent,
@@ -81,8 +80,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     CoreModule,
     NgxPaginationModule,
     CollapseModule.forRoot(),
-    FlexLayoutModule,
-
+    FontAwesomeModule
   ],
   providers: [OrderService, ProductService, MemberService, CouponService],
   bootstrap: [AppComponent]
