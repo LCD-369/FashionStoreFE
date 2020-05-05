@@ -9,6 +9,7 @@ import * as AuthActions from '../auth/store/auth.actions';
 import { AlertComponent } from '../shared/alert/alert.component';
 import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

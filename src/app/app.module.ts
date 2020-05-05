@@ -81,7 +81,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     CoreModule,
     NgxPaginationModule,
     CollapseModule.forRoot(),
-    FlexLayoutModule
+    FlexLayoutModule,
+
   ],
   providers: [OrderService, ProductService, MemberService, CouponService],
   bootstrap: [AppComponent]
