@@ -1,36 +1,35 @@
-<div class="container-fluid">
-  <div class="jumbotron p-4 text-white rounded bg-dark text-center">
-    <div class="col-auto bg-dark pb-2">
-      <h1 class="display-4 font-italic">SPRING AND SUMMER SALE</h1>
-      <p class="lead">Receive a 10% discount at checkout for all spring and summer apperel.</p>
+<div class="container-fluid" style="margin-top: -20px">
+  <div class="card-group">
+  <div class="card shadow-sm grow">
+    <img src="assets/images/women/femalemodel.jpg" class="card-img-top"  alt="...">
+    <div class="card-body text-center">
+      <h4 class="card-title text-dark lead" style="font-size: 200%">Shop Women Apperel</h4>
+      <p class="card-text lead">New styles hitting our shelves every week, there's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.</p>
     </div>
-    <br />
+    <div class="card-footer bg-white text-center">
+      <div type="button" class="btn btn-outline-secondary" (click)="onLoadFemaleBrowse()">Shop women</div>
+    </div>
+  </div>
+  <div class="card shadow-sm grow">
+    <img src="assets/images/men/malemodel.jpg" class="card-img-top" alt="...">
+    <div class="card-body text-center">
+      <h4 class="card-title text-dark lead" style="font-size: 200%">Shop Men Apperel</h4>
+      <p class="card-text lead">Find Stylish and Classy Clothing For Men. Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.</p>
+    </div>
+    <div class="card-footer bg-white text-center">
+      <div type="button" class="btn btn-outline-secondary" (click)="onLoadMaleBrowse()">Shop men</div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm grow">
+    <img src="assets/images/children/childmodel.jpg" class="card-img-top" alt="...">
+    <div class="card-body text-center">
+      <h4 class="card-title text-dark lead" style="font-size: 200%">Shop Children Apperel</h4>
+      <p class="card-text lead">Designer New in of Clothing & Accessories for kids. Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.</p>
+    </div>
+    <div class="card-footer bg-white text-center">
+      <div type="button" class="btn btn-outline-secondary" (click)="onLoadChildrenBrowse()">Shop children</div>
+    </div>
   </div>
 </div>
-
-<div class="container-fluid marketing">
-  <div class="row">
-
-    <div class="col-lg-4 p-1 border rounded shadow-sm">
-      <h3 class="text-white bg-dark p-2 rounded">Shop Women Apperel</h3>
-      <img src="assets/images/women/plaintfemalelargenavyblue2020.jpg" class="bd-placeholder-img rounded" width="auto" height="200" alt="...">
-      <p class="text-dark">New styles hitting our shelves every week, there's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.</p>
-      <div><a class="btn btn-dark text-white" (click)="onLoadFemaleBrowse()" role="button">Shop women &raquo;</a></div>
-    </div>
-
-    <div class="col-lg-4 p-1 border rounded shadow-sm">
-      <h3 class="text-white bg-dark p-2 rounded">Shop Men Apperel</h3>
-      <img src="assets/images/men/plaintmalelargered2020.jpg" class="bd-placeholder-img rounded" width="auto" height="200" alt="...">
-      <p class="text-dark">Find Stylish and Classy Clothing For Men. Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.</p>
-      <div><a class="btn btn-dark text-white" (click)="onLoadMaleBrowse()" role="button">Shop men &raquo;</a></div>
-    </div>
-
-    <div class="col-lg-4 p-1 border rounded shadow-sm">
-      <h3 class="text-white bg-dark p-2 rounded">Shop Children Apperel</h3>
-      <img src="assets/images/children/a-large.jpg" class="bd-placeholder-img rounded" width="auto" height="200" alt="...">
-      <p class="text-dark">Designer New in of Clothing & Accessories for kids. Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.</p>
-      <div><a class="btn btn-dark text-white" (click)="onLoadChildrenBrowse()" role="button">Shop children &raquo;</a></div>
-    </div>
-
-  </div>
 </div>

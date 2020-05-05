@@ -1,9 +1,17 @@
-<div class="container m-auto">
-<mat-grid-list cols="4">
-  <mat-grid-tile
-      *ngFor="let product of products"
-      [colspan]="3"
-      [rowspan]="3">
-  </mat-grid-tile>
-</mat-grid-list>
+<div *ngIf="isLoading" style="text-align: center">
+  <app-loading-spinner></app-loading-spinner>
 </div>
+<div class="container m-auto" *ngIf="ShowParentComponent">
+    <div class="card text-center" *ngFor="let product of products | paginate: { itemsPerPage: 3, currentPage: page, totalItems: length }">
+      <h3 class="m-auto text-dark"><i>{{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</i></h3>
+      <img width="200" height="200" src={{product.IMAGE}} alt="Photo">
+      <button type="button" class="btn btn-outline-secondary btn-block p-1" (click)="onLoadDetails(product)">View Product</button>
+    </div>
+  <hr />
+  <pagination-controls responsive="true" (pageChange)="page = $event"></pagination-controls>
+</div>
+
+<div class="container">
+  <app-product-detail *ngIf="showChildComponent" [currentProduct]="currentProduct"></app-product-detail>
+</div>
+<br />

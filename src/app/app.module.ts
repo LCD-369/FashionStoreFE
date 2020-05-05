@@ -6,10 +6,10 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import * as fromApp from './store/app.reducer';
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +40,7 @@ import { AuthComponent } from './auth/auth.component';
 import { BrowseShoeComponent } from './browse-shoe/browse-shoe.component';
 import { BrowseAccessoryComponent } from './browse-accessory/browse-accessory.component';
 import { LogoComponent } from './logo/logo.component';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 
 @NgModule({
@@ -73,13 +74,14 @@ import { LogoComponent } from './logo/logo.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatGridListModule,
-    MatPaginatorModule,
     EffectsModule.forRoot([AuthEffects]),
     StoreModule.forRoot(fromApp.appReducer),
     StoreRouterConnectingModule.forRoot(),
     SharedModule,
-    CoreModule
+    CoreModule,
+    NgxPaginationModule,
+    CollapseModule.forRoot(),
+    FlexLayoutModule
   ],
   providers: [OrderService, ProductService, MemberService, CouponService],
   bootstrap: [AppComponent]

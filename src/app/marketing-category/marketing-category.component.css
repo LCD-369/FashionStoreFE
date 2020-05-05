@@ -1,46 +1,17 @@
-.marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
+
+.grow:hover {
+  z-index: 6;
+  -webkit-transform: scale(1.0);
+  transform: scale(1.0);
+  -webkit-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
+  text-decoration: none;
 }
 
-.marketing-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/assets/images/lights3.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  display: block;
-  padding: 5px;
-}
-.marketing h2 {
-  font-weight: 400;
-}
-.marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
-}
-
-.marketing .fimage {
-  display: block;
-  width: auto;
-  height: auto;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-	url("/assets/images/wf.jpg");
-}
-
-@media (min-width: 40em) {
-  .carousel-caption p {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
-
-  .featurette-heading {
-    font-size: 50px;
-  }
-}
-
-@media (min-width: 62em) {
-  .featurette-heading {
-    margin-top: 7rem;
-  }
+.grow {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+  -webkit-transition: all ease-out 0.4s;
+  transition: all ease-out 0.4s;
+  text-decoration: none;
 }

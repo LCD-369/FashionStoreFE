@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, ComponentFactoryResolver, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ComponentFactoryResolver, ViewChild, AfterViewInit } from '@angular/core';
+import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -21,10 +22,21 @@ export class HeaderComponent implements OnInit {
   private closeSub: Subscription;
   private cartSub: Subscription;
   cartLength: number;
-  constructor(private router: Router, private store: Store<fromApp.AppState>, private componentFactoryResolver: ComponentFactoryResolver) { }
+  smNav: boolean;
+  // Subscription of the observer of the screen size
+  watcher: Subscription;
+  // The active media query (xs | sm | md | lg | xl)
+  activeMediaQuery: string;
+
+  constructor(private router: Router, private store: Store<fromApp.AppState>,
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private mediaObserver: MediaObserver) {
+
+  }
 
   ngOnInit() {
     this.router.navigate(['home']);
+
     this.userSub = this.store
       .select('auth')
       .pipe(map(authState => authState.user))
@@ -34,15 +46,34 @@ export class HeaderComponent implements OnInit {
         console.log(!!user);
       });
 
-      this.cartSub = this.store
-        .select('cartItems')
-        .pipe(map(cartState => cartState.cartItems))
-        .subscribe(products => {
-          this.productsInCart = !!products;
-          this.cartLength = products.length;
-          console.log(!products);
-          console.log(!!products);
-        });
+    this.cartSub = this.store
+      .select('cartItems')
+      .pipe(map(cartState => cartState.cartItems))
+      .subscribe(products => {
+        this.productsInCart = !!products;
+        this.cartLength = products.length;
+        console.log(!products);
+        console.log(!!products);
+      });
+  }
+
+   ngAfterViewInit() {
+     this.watcher = this.mediaObserver.media$.subscribe((change: MediaChange) => {
+       this.activeMediaQuery = change ? `'${change.mqAlias}' = (${change.mediaQuery})` : '';
+       if (change.mqAlias == 'xs' || change.mqAlias == 'sm') {
+         this.loadMobileContent();
+       } if (change.mqAlias == 'md' || change.mqAlias == 'lg' || change.mqAlias == 'xl')  {
+         this.loadBrowserContent();
+       }
+     });
+   }
+
+  loadMobileContent() {
+    this.smNav = true;
+  }
+
+  loadBrowserContent() {
+    this.smNav = false;
   }
 
   onLogout() {
@@ -88,6 +119,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnDestroy() {
     this.userSub.unsubscribe();
+    this.watcher.unsubscribe();
   }
 
   private showAlert() {
