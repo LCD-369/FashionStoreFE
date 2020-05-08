@@ -5,6 +5,9 @@ import { AlertComponent } from './alert/alert.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { PlaceholderDirective } from './placeholder/placeholder.directive';
 import { DropdownDirective } from './dropdown.directive';
+import { SelectRequiredValidatorDirectiveDirective } from './select-required-validator-directive.directive';
+import { CustomPipePipe } from './custom-pipe.pipe';
+import { PhoneMaskDirectiveDirective } from './phone-mask-directive.directive';
 // import { LoggingService } from '../logging.service';
 
 @NgModule({
@@ -12,7 +15,10 @@ import { DropdownDirective } from './dropdown.directive';
     AlertComponent,
     LoadingSpinnerComponent,
     PlaceholderDirective,
-    DropdownDirective
+    DropdownDirective,
+    SelectRequiredValidatorDirectiveDirective,
+    CustomPipePipe,
+    PhoneMaskDirectiveDirective
   ],
   imports: [CommonModule],
   exports: [
@@ -20,7 +26,9 @@ import { DropdownDirective } from './dropdown.directive';
     LoadingSpinnerComponent,
     PlaceholderDirective,
     DropdownDirective,
-    CommonModule
+    CommonModule,
+    CustomPipePipe,
+    PhoneMaskDirectiveDirective
   ],
   entryComponents: [AlertComponent],
   providers: []

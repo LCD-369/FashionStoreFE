@@ -1,74 +1,123 @@
-<div class="container border rounded shadow-sm">
+<ng-template appPlaceholder></ng-template>
+<div *ngIf="isLoading" style="text-align: center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div *ngIf="!needRegister" class="container border rounded shadow-sm">
   <h2 class="mb-3 mt-3 text-center">Member Profile</h2>
-  <div class="table-responsive rounded">
-    <table class="table table-white">
-      <tbody>
-        <tr>
-          <th scope="row">Email:</th>
-          <td>{{user.EMAIL}}</td>
-          <td>
-            <div type="button" class="btn btn-outline-dark btn-block">Edit</div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">First name:</th>
-          <td>{{user.FIRSTNAME}}</td>
-          <td>
-            <div type="button" class="btn btn-outline-dark btn-block">Edit</div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Last name:</th>
-          <td>{{user.LASTNAME}}</td>
-          <td>
-            <div type="button" class="btn btn-outline-dark btn-block">Edit</div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Address:</th>
-          <td>{{user.ADDRESSSTREET}}</td>
-          <td>
-            <div type="button" class="btn btn-outline-dark btn-block">Edit</div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">City:</th>
-          <td>{{user.CITY}}</td>
-          <td>
-            <div type="button" class="btn btn-outline-dark btn-block">Edit</div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">State:</th>
-          <td>{{user.STATE}}</td>
-          <td>
-            <div type="button" class="btn btn-outline-dark btn-block">Edit</div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Country:</th>
-          <td>{{user.COUNTRY}}</td>
-          <td>
-            <div type="button" class="btn btn-outline-dark btn-block">Edit</div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Zipcode:</th>
-          <td>{{user.ZIPCODE}}</td>
-          <td>
-            <div type="button" class="btn btn-outline-dark btn-block">Edit</div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Phone:</th>
-          <td>{{user.PHONE}}</td>
-          <td>
-            <div type="button" class="btn btn-outline-dark btn-block">Edit</div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <h2 class="mb-3 mt-3 text-center lead">Email: {{ userRegEmail }}</h2>
+  <form (ngSubmit)="onUpdate()" #memberModel="ngForm">
+    <div class="form-row lead">
+      <div class="form-group col-md-6">
+        <label for="firstname">First name</label>
+        <input type="text" class="form-control" id="firstname" placeholder={{model.firstname}} [(ngModel)]="model.firstname" name="firstname">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastname">Last name</label>
+        <input type="text" class="form-control" id="lastname" placeholder={{model.lastname}} [(ngModel)]="model.lastname" name="lastname">
+      </div>
+    </div>
+    <div class="form-group lead">
+      <label for="addressstreet">Address</label>
+      <input type="text" class="form-control" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet">
+    </div>
+
+    <div class="form-row lead">
+      <div class="form-group col-md-6">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" placeholder={{model.city}} [(ngModel)]="model.city" name="city">
+      </div>
+      <div class="form-group col-md-4 lead">
+        <label for="state">State</label>
+        <select id="state" class="form-control" [(ngModel)]="model.state" name="state">
+          <option selected>Choose...</option>
+          <option *ngFor="let state of states">{{state}}</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2 lead">
+        <label for="zipcode">Zip</label>
+        <input type="text" class="form-control" id="zipcode" placeholder={{model.zipcode}} [(ngModel)]="model.zipcode" name="zipcode">
+      </div>
+    </div>
+    <div class="form-row lead">
+      <div class="form-group col-md-4 lead">
+        <label for="country">Country</label>
+        <select id="country" class="form-control" [(ngModel)]="model.country" name="country">
+          <option selected>{{model.country}}</option>
+          <option *ngFor="let country of countryList">{{country}}</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 lead">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" id="phone"  placeholder={{model.phone}} [(ngModel)]="model.phone" name="phone" appPhoneMaskDirective>
+      </div>
+    </div>
+    <div class="form-row lead justify-content-center">
+      <button type="submit" class="btn btn-outline-dark btn-lg" [disabled]="!memberModel.form.valid">Update</button>
+    </div>
+
+    <span *ngIf="">Test</span>
+
+  </form>
   <br />
 </div>
+
+<!--Register-->
+<div *ngIf="needRegister" class="container border rounded shadow-sm">
+  <h2 class="mb-3 mt-3 text-center">Complete Registration</h2>
+  <h2 class="mb-3 mt-3 text-center lead">Email: {{ userRegEmail }}</h2>
+  <form (ngSubmit)="onRegister()" #memberModel="ngForm">
+    <div class="form-row lead">
+      <div class="form-group col-md-6">
+        <label for="firstname">First name</label>
+        <input type="text" class="form-control" id="firstname" placeholder={{model.firstname}} [(ngModel)]="model.firstname" name="firstname">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastname">Last name</label>
+        <input type="text" class="form-control" id="lastname" placeholder={{model.lastname}} [(ngModel)]="model.lastname" name="lastname">
+      </div>
+    </div>
+    <div class="form-group lead">
+      <label for="addressstreet">Address</label>
+      <input type="text" class="form-control" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet">
+    </div>
+
+    <div class="form-row lead">
+      <div class="form-group col-md-6">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" placeholder={{model.city}} [(ngModel)]="model.city" name="city">
+      </div>
+      <div class="form-group col-md-4 lead">
+        <label for="state">State</label>
+        <select id="state" class="form-control" [(ngModel)]="model.state" name="state">
+          <option selected>Choose...</option>
+          <option *ngFor="let state of states">{{state}}</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2 lead">
+        <label for="zipcode">Zip</label>
+        <input type="text" class="form-control" id="zipcode" placeholder={{model.zipcode}} [(ngModel)]="model.zipcode" name="zipcode">
+      </div>
+    </div>
+    <div class="form-row lead">
+      <div class="form-group col-md-4 lead">
+        <label for="country">Country</label>
+        <select id="country" class="form-control" [(ngModel)]="model.country" name="country">
+          <option selected>{{model.country}}</option>
+          <option *ngFor="let country of countryList">{{country}}</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4 lead">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" id="phone" placeholder={{model.phone}} [(ngModel)]="model.phone" name="phone" appPhoneMaskDirective>
+      </div>
+    </div>
+    <div class="form-row lead justify-content-center">
+      <button type="submit" class="btn btn-outline-dark btn-lg" [disabled]="!memberModel.form.valid">Register</button>
+    </div>
+
+    <span *ngIf="">Test</span>
+
+  </form>
+  <br />
+  </div>
 <br />

@@ -1,15 +1,6 @@
 export class Member {
-  pk: string;
-  sk: string;
-  username: string;
-  email: string;
-  password: string;
-  firstname: string;
-  lastname: string;
-  addressstreet: string;
-  city: string;
-  zipcode: string;
-  state: string;
-  country: string;
-  phone: string;
+  constructor(public PK: string, public SK: string, public email: string, public firstname: string,
+    public lastname: string, public addressstreet: string, public city: string, public zipcode: string,
+    public state: string, public country: string, public phone: string) {}
+
 }

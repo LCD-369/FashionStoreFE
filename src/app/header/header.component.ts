@@ -36,8 +36,6 @@ export class HeaderComponent implements OnInit {
       .pipe(map(authState => authState.user))
       .subscribe(user => {
         this.isAuthenticated = !!user;
-        console.log(!user);
-        console.log(!!user);
       });
 
     this.cartSub = this.store
@@ -46,8 +44,6 @@ export class HeaderComponent implements OnInit {
       .subscribe(products => {
         this.productsInCart = !!products;
         this.cartLength = products.length;
-        console.log(!products);
-        console.log(!!products);
       });
   }
 
