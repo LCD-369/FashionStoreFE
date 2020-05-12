@@ -1,0 +1,67 @@
+<div class="container text-center" *ngIf="!paidFor">
+  <h1>Order Description</h1>
+  <p *ngFor="let product of (items | async).cartItems; index as i">{{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</p>
+  <h5>Order Total</h5>
+  <p>{{ totalSale }}</p>
+  <div class="container">
+    <h2 class="text-center">Verify Shipping address</h2>
+    <form #memberModel="ngForm">
+      <div class="form-row lead">
+        <div class="form-group col-md-6">
+          <label for="firstname">First name</label>
+          <input type="text" class="form-control" id="firstname" placeholder={{model.firstname}} [(ngModel)]="model.firstname" name="firstname" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastname">Last name</label>
+          <input type="text" class="form-control" id="lastname" placeholder={{model.lastname}} [(ngModel)]="model.lastname" name="lastname" required>
+        </div>
+      </div>
+      <div class="form-group lead">
+        <label for="addressstreet">Address</label>
+        <input type="text" class="form-control" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet" required>
+      </div>
+
+      <div class="form-row lead">
+        <div class="form-group col-md-6">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="city" placeholder={{model.city}} [(ngModel)]="model.city" name="city" required>
+        </div>
+        <div class="form-group col-md-4 lead">
+          <label for="state">State</label>
+          <select id="state" class="form-control" [(ngModel)]="model.state" name="state" required>
+            <option selected>Choose...</option>
+            <option *ngFor="let state of states">{{state}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2 lead">
+          <label for="zipcode">Zip</label>
+          <input type="text" class="form-control" id="zipcode" placeholder={{model.zipcode}} [(ngModel)]="model.zipcode" name="zipcode" required>
+        </div>
+      </div>
+      <div class="form-row lead">
+        <div class="form-group col-md-4 lead">
+          <label for="country">Country</label>
+          <select id="country" class="form-control" [(ngModel)]="model.country" name="country" required>
+            <option selected>{{model.country}}</option>
+            <option *ngFor="let country of countryList">{{country}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4 lead">
+          <label for="phone">Phone</label>
+          <input type="text" class="form-control" id="phone"  placeholder={{model.phone}} [(ngModel)]="model.phone" name="phone" appPhoneMaskDirective required>
+        </div>
+      </div>
+      <div class="form-row lead justify-content-center">
+        <!-- <button class="btn btn-outline-dark btn-lg">Update Shipping</button> -->
+      </div>
+    </form>
+  </div>
+</div>
+<br />
+<div *ngIf="paidFor" class="container text-center">
+  <h1>Confirmation</h1>
+
+</div>
+<div class="container text-center">
+  <div #paypal></div>
+</div>

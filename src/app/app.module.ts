@@ -15,7 +15,6 @@ import * as fromApp from './store/app.reducer';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { IntroComponent } from './intro/intro.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CartComponent } from './cart/cart.component';
 import { MarketingCategoryComponent } from './marketing-category/marketing-category.component';
@@ -28,7 +27,6 @@ import { ProductService } from './services/product.service';
 import { OrderService } from './services/order.service';
 import { MemberService } from './services/member.service';
 import { CouponService } from './services/coupon.service';
-import { PageLoginFirstComponent } from './page-login-first/page-login-first.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowseWomenComponent } from './browse-women/browse-women.component';
 import { BrowseMenComponent } from './browse-men/browse-men.component';
@@ -41,13 +39,13 @@ import { BrowseAccessoryComponent } from './browse-accessory/browse-accessory.co
 import { LogoComponent } from './logo/logo.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PaymeComponent } from './payme/payme.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    IntroComponent,
     ProfileComponent,
     CartComponent,
     MarketingCategoryComponent,
@@ -56,7 +54,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FooterComponent,
     JumbotronComponent,
     PageNotFoundComponent,
-    PageLoginFirstComponent,
     BrowseWomenComponent,
     BrowseMenComponent,
     BrowseChildrenComponent,
@@ -64,7 +61,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AuthComponent,
     BrowseShoeComponent,
     BrowseAccessoryComponent,
-    LogoComponent
+    LogoComponent,
+    PaymeComponent
   ],
   imports: [
     BrowserModule,

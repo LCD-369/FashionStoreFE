@@ -35,4 +35,9 @@ export class BrowseShoeComponent implements OnInit {
     this.ShowParentComponent = false;
   }
 
+  onClose() {
+    this.showChildComponent = false;
+    this.ShowParentComponent = true;
+  }
+
 }

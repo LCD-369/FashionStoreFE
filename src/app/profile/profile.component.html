@@ -3,52 +3,52 @@
   <app-loading-spinner></app-loading-spinner>
 </div>
 <div *ngIf="!needRegister" class="container border rounded shadow-sm">
-  <h2 class="mb-3 mt-3 text-center">Member Profile</h2>
+  <h2 class="mb-3 mt-3 text-center bg-dark rounded p-1 text-white">Member Profile</h2>
   <h2 class="mb-3 mt-3 text-center lead">Email: {{ userRegEmail }}</h2>
   <form (ngSubmit)="onUpdate()" #memberModel="ngForm">
     <div class="form-row lead">
       <div class="form-group col-md-6">
         <label for="firstname">First name</label>
-        <input type="text" class="form-control" id="firstname" placeholder={{model.firstname}} [(ngModel)]="model.firstname" name="firstname">
+        <input type="text" class="form-control" id="firstname" placeholder={{model.firstname}} [(ngModel)]="model.firstname" name="firstname" required>
       </div>
       <div class="form-group col-md-6">
         <label for="lastname">Last name</label>
-        <input type="text" class="form-control" id="lastname" placeholder={{model.lastname}} [(ngModel)]="model.lastname" name="lastname">
+        <input type="text" class="form-control" id="lastname" placeholder={{model.lastname}} [(ngModel)]="model.lastname" name="lastname" required>
       </div>
     </div>
     <div class="form-group lead">
       <label for="addressstreet">Address</label>
-      <input type="text" class="form-control" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet">
+      <input type="text" class="form-control" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet" required>
     </div>
 
     <div class="form-row lead">
       <div class="form-group col-md-6">
         <label for="city">City</label>
-        <input type="text" class="form-control" id="city" placeholder={{model.city}} [(ngModel)]="model.city" name="city">
+        <input type="text" class="form-control" id="city" placeholder={{model.city}} [(ngModel)]="model.city" name="city" required>
       </div>
       <div class="form-group col-md-4 lead">
         <label for="state">State</label>
-        <select id="state" class="form-control" [(ngModel)]="model.state" name="state">
+        <select id="state" class="form-control" [(ngModel)]="model.state" name="state" required>
           <option selected>Choose...</option>
           <option *ngFor="let state of states">{{state}}</option>
         </select>
       </div>
       <div class="form-group col-md-2 lead">
         <label for="zipcode">Zip</label>
-        <input type="text" class="form-control" id="zipcode" placeholder={{model.zipcode}} [(ngModel)]="model.zipcode" name="zipcode">
+        <input type="text" class="form-control" id="zipcode" placeholder={{model.zipcode}} [(ngModel)]="model.zipcode" name="zipcode" required>
       </div>
     </div>
     <div class="form-row lead">
       <div class="form-group col-md-4 lead">
         <label for="country">Country</label>
-        <select id="country" class="form-control" [(ngModel)]="model.country" name="country">
+        <select id="country" class="form-control" [(ngModel)]="model.country" name="country" required>
           <option selected>{{model.country}}</option>
           <option *ngFor="let country of countryList">{{country}}</option>
         </select>
       </div>
       <div class="form-group col-md-4 lead">
         <label for="phone">Phone</label>
-        <input type="text" class="form-control" id="phone"  placeholder={{model.phone}} [(ngModel)]="model.phone" name="phone" appPhoneMaskDirective>
+        <input type="text" class="form-control" id="phone"  placeholder={{model.phone}} [(ngModel)]="model.phone" name="phone" appPhoneMaskDirective required>
       </div>
     </div>
     <div class="form-row lead justify-content-center">
@@ -63,52 +63,52 @@
 
 <!--Register-->
 <div *ngIf="needRegister" class="container border rounded shadow-sm">
-  <h2 class="mb-3 mt-3 text-center">Complete Registration</h2>
+  <h2 class="mb-3 mt-3 text-center bg-dark rounded p-1 text-white">Complete Registration</h2>
   <h2 class="mb-3 mt-3 text-center lead">Email: {{ userRegEmail }}</h2>
   <form (ngSubmit)="onRegister()" #memberModel="ngForm">
     <div class="form-row lead">
       <div class="form-group col-md-6">
         <label for="firstname">First name</label>
-        <input type="text" class="form-control" id="firstname" placeholder={{model.firstname}} [(ngModel)]="model.firstname" name="firstname">
+        <input type="text" class="form-control" id="firstname" placeholder={{model.firstname}} [(ngModel)]="model.firstname" name="firstname" required>
       </div>
       <div class="form-group col-md-6">
         <label for="lastname">Last name</label>
-        <input type="text" class="form-control" id="lastname" placeholder={{model.lastname}} [(ngModel)]="model.lastname" name="lastname">
+        <input type="text" class="form-control" id="lastname" placeholder={{model.lastname}} [(ngModel)]="model.lastname" name="lastname" required>
       </div>
     </div>
     <div class="form-group lead">
       <label for="addressstreet">Address</label>
-      <input type="text" class="form-control" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet">
+      <input type="text" class="form-control" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet" required>
     </div>
 
     <div class="form-row lead">
       <div class="form-group col-md-6">
         <label for="city">City</label>
-        <input type="text" class="form-control" id="city" placeholder={{model.city}} [(ngModel)]="model.city" name="city">
+        <input type="text" class="form-control" id="city" placeholder={{model.city}} [(ngModel)]="model.city" name="city" required>
       </div>
       <div class="form-group col-md-4 lead">
         <label for="state">State</label>
-        <select id="state" class="form-control" [(ngModel)]="model.state" name="state">
+        <select id="state" class="form-control" [(ngModel)]="model.state" name="state" required>
           <option selected>Choose...</option>
           <option *ngFor="let state of states">{{state}}</option>
         </select>
       </div>
       <div class="form-group col-md-2 lead">
         <label for="zipcode">Zip</label>
-        <input type="text" class="form-control" id="zipcode" placeholder={{model.zipcode}} [(ngModel)]="model.zipcode" name="zipcode">
+        <input type="text" class="form-control" id="zipcode" placeholder={{model.zipcode}} [(ngModel)]="model.zipcode" name="zipcode" required>
       </div>
     </div>
     <div class="form-row lead">
       <div class="form-group col-md-4 lead">
         <label for="country">Country</label>
-        <select id="country" class="form-control" [(ngModel)]="model.country" name="country">
+        <select id="country" class="form-control" [(ngModel)]="model.country" name="country" required>
           <option selected>{{model.country}}</option>
           <option *ngFor="let country of countryList">{{country}}</option>
         </select>
       </div>
       <div class="form-group col-md-4 lead">
         <label for="phone">Phone</label>
-        <input type="text" class="form-control" id="phone" placeholder={{model.phone}} [(ngModel)]="model.phone" name="phone" appPhoneMaskDirective>
+        <input type="text" class="form-control" id="phone" placeholder={{model.phone}} [(ngModel)]="model.phone" name="phone" appPhoneMaskDirective required>
       </div>
     </div>
     <div class="form-row lead justify-content-center">

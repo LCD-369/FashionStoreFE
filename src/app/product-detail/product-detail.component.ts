@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, ComponentFactoryResolver, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
 import { Product } from '../models/product';
 import * as ShoppingListActions from '../cart/store/cart.actions';
 import { Subscription } from 'rxjs';
@@ -15,11 +16,13 @@ import { PlaceholderDirective } from '../shared/placeholder/placeholder.directiv
 export class ProductDetailComponent implements OnInit {
   @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;
   @Input() currentProduct: Product;
+  @Output() close: EventEmitter<any> = new EventEmitter();
   private closeSub: Subscription;
 
   constructor(
     private store: Store<{cartItemReducer: {cartIems: Product[]} }>,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -29,6 +32,10 @@ export class ProductDetailComponent implements OnInit {
   addProductToCart() {
     this.store.dispatch(new ShoppingListActions.AddProduct(this.currentProduct));
     this.showAlert();
+  }
+
+  onLoadBrowse() {
+    this.close.emit();
   }
 
   private showAlert() {

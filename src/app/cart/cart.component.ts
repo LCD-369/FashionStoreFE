@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../store/app.reducer';
 import * as ShoppingListActions from '../cart/store/cart.actions';
@@ -13,7 +14,7 @@ import { Product } from '../models/product';
 export class CartComponent implements OnInit {
   items: Observable<{ cartItems: Product[] }>;
   element: any;
-  constructor(private store: Store<fromApp.AppState>) { }
+  constructor(private router: Router, private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
       this.items = this.store.select('cartItems');
@@ -35,7 +36,7 @@ export class CartComponent implements OnInit {
   }
 
   startCheckout() {
-    
+    this.router.navigate(['checkout']);
   }
 
 }

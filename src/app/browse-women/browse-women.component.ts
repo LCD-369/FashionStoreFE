@@ -34,4 +34,9 @@ export class BrowseWomenComponent implements OnInit {
     this.showChildComponent = true;
     this.ShowParentComponent = false;
   }
+
+  onClose() {
+    this.showChildComponent = false;
+    this.ShowParentComponent = true;
+  }
 }

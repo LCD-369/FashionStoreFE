@@ -5,23 +5,21 @@
   <div *ngIf="isLoading" style="text-align: center">
     <app-loading-spinner></app-loading-spinner>
   </div>
-  <div class="container my-5 p-3" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2));">
 
-    <div class="row justify-content-center text-center text-white">
-      <h5>Log in to your account!</h5>
-    </div>
-    <div class="row justify-content-center text-center text-white">
-      <fa-icon [icon]="faLock" size="2x"></fa-icon>
-    </div>
+  <div class="container my-5 p-3">
     <div class="row justify-content-center text-center">
-      <div class="col-auto">
+      <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-white rounded text-center" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));">
+        <h5>Log in to your account!</h5>
+        <fa-icon [icon]="faLock" size="2x"></fa-icon>
         <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
-          <div class="form-group text-white pt-2">
-            <label for="email"><h3 style="letter-spacing: 4px; color: #e3dac3">Email</h3></label>
+          <div class="form-group pt-2">
+            <label *ngIf="isLoginMode" for="email"><h3 style="letter-spacing: 1px">Email</h3></label>
+            <label *ngIf="!isLoginMode" for="email"><h3 style="letter-spacing: 1px">Enter Registration Email</h3></label>
             <input type="email" id="email" class="form-control text-center" ngModel name="email" placeholder="name@example.com" required email />
           </div>
-          <div class="form-group text-white">
-            <label for="password"><h3 style="letter-spacing: 4px; color: #e3dac3">Password</h3></label>
+          <div class="form-group">
+            <label  *ngIf="isLoginMode" for="password"><h3 style="letter-spacing: 1px">Password</h3></label>
+            <label  *ngIf="!isLoginMode" for="password"><h3 style="letter-spacing: 1px">Register Account Password</h3></label>
             <input type="password" id="password" class="form-control text-center" ngModel name="password" placeholder="enter password" required minlength="6" />
           </div>
           <div>
@@ -30,12 +28,11 @@
           </div>
           <br />
         </form>
+        <h5 class="text-white">or Forgot Password</h5>
       </div>
     </div>
-    <div class="row justify-content-center text-center text-white">
-      <h5>or Forgot Password</h5>
-    </div>
   </div>
+
   <br />
 </div>
 <br />

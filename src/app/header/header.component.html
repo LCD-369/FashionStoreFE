@@ -1,45 +1,29 @@
 <ng-template appPlaceholder></ng-template>
 <app-logo></app-logo>
-
-  <header class="blog-header py-1 px-5">
-    <div class="row flex-nowrap justify-content-around">
-      <div class="col text-dark text-center">
+  <header class="blog-header py-2">
+    <div class="row flex-nowrap justify-content-center">
+      <div class="col-auto mr-auto text-dark text-center">
         <a class="text-dark " href="#">Subscribe</a>
       </div>
-      <div class="col text-dark text-center">
-        <a class="grow btn btn-sm " (click)="onLoadCart()"><fa-icon [icon]="faShoppingCart" size="2x"></fa-icon><span *ngIf="productsInCart">({{cartLength}})</span></a>
+      <div class="col-auto text-dark text-center">
+        <a class="grow btn btn-sm" (click)="onLoadCart()"><fa-icon [icon]="faShoppingCart" size="2x"></fa-icon><span *ngIf="productsInCart">({{cartLength}})</span></a>
       </div>
-      <div class="col text-dark text-center">
+      <div class="col-auto text-dark text-center">
         <a class="grow btn btn-sm" (click)="onLoadProfile()"><fa-icon [icon]="faUser" size="2x"></fa-icon></a>
       </div>
-      <div class="col text-dark text-center">
-        <a *ngIf="isAuthenticated" class="grow btn btn-sm mt-1 " (click)="onLogout()">Logout</a>
+      <div class="col-auto text-dark text-center">
+        <a *ngIf="isAuthenticated" class="grow btn btn-sm mt-1" (click)="onLogout()">Logout</a>
       </div>
     </div>
   </header>
-
-
-<div class="d-none d-md-block nav-scroller py-1 mb-2">
-  <nav class="nav d-flex justify-content-between text-dark">
+<div class="d-block sticky text-center py-1 px-5 mb-2 bg-white" style="border-bottom: 1px solid #e5e5e5;">
+  <nav class="nav d-flex justify-content-around text-dark">
     <a class="grow btn" (click)="onLoadHome()">Home Page</a>
     <a class="grow btn" (click)="onLoadMaleBrowse()">Male Attire</a>
     <a class="grow btn" (click)="onLoadFemaleBrowse()">Female Attire</a>
     <a class="grow btn" (click)="onLoadChildrenBrowse()">Children Attire</a>
     <a class="grow btn" (click)="onLoadShoesBrowse()">Shoes</a>
     <a class="grow btn" (click)="onLoadAccessoryBrowse()">Accessories</a>
-    <a class="grow btn" (click)="onLoadLogin()">Login/Register</a>
-  </nav>
-</div>
-<div class="d-sm-block d-md-none m-auto text-center">
-  <nav class="nav justify-content-center text-dark">
-    <div><a class="grow btn" (click)="onLoadHome()">Home Page</a></div>
-
-
-    <a class="grow btn" (click)="onLoadMaleBrowse()">Male Attire</a>
-    <a class="grow btn" (click)="onLoadFemaleBrowse()">Female Attire</a>
-    <a class="grow btn" (click)="onLoadChildrenBrowse()">Children Attire</a>
-    <a class="grow btn" (click)="onLoadShoesBrowse()">Shoes</a>
-    <a class="grow btn" (click)="onLoadAccessoryBrowse()">Accessories</a>
-    <a class="grow btn" (click)="onLoadLogin()">Login/Register</a>
+    <a *ngIf="!isAuthenticated" class="grow btn" (click)="onLoadLogin()">Login/Register</a>
   </nav>
 </div>

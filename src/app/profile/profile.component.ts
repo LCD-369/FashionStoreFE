@@ -76,7 +76,6 @@ export class ProfileComponent implements OnInit {
         res.FIRSTNAME, res.LASTNAME, res.ADDRESSSTREET,
         res.CITY, res.ZIPCODE, res.STATE,
         res.COUNTRY, res.PHONE);
-        console.log(res)
     }, (err) => {
       this.needRegister = true;
       this.model.email = this.userRegEmail;
