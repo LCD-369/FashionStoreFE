@@ -3,7 +3,7 @@
   <app-loading-spinner></app-loading-spinner>
 </div>
 <div *ngIf="!needRegister" class="container border rounded shadow-sm">
-  <h2 class="mb-3 mt-3 text-center bg-dark rounded p-1 text-white">Member Profile</h2>
+  <h2 class="mb-3 mt-3 text-center bg-dark p-1 text-white">Member Profile</h2>
   <h2 class="mb-3 mt-3 text-center lead">Email: {{ userRegEmail }}</h2>
   <form (ngSubmit)="onUpdate()" #memberModel="ngForm">
     <div class="form-row lead">
@@ -63,7 +63,7 @@
 
 <!--Register-->
 <div *ngIf="needRegister" class="container border rounded shadow-sm">
-  <h2 class="mb-3 mt-3 text-center bg-dark rounded p-1 text-white">Complete Registration</h2>
+  <h2 class="mb-3 mt-3 text-center bg-dark p-1 text-white">Complete Registration</h2>
   <h2 class="mb-3 mt-3 text-center lead">Email: {{ userRegEmail }}</h2>
   <form (ngSubmit)="onRegister()" #memberModel="ngForm">
     <div class="form-row lead">

@@ -1,0 +1,6 @@
+.fixed {
+  position: -webkit-fixed-bottom; /* Safari */
+  position: fixed-bottom;
+  z-index: 20;
+  top: 0;
+}

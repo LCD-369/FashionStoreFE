@@ -1,10 +1,18 @@
 <div class="container text-center" *ngIf="!paidFor">
-  <h1>Order Description</h1>
-  <p *ngFor="let product of (items | async).cartItems; index as i">{{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</p>
-  <h5>Order Total</h5>
-  <p>{{ totalSale }}</p>
-  <div class="container">
-    <h2 class="text-center">Verify Shipping address</h2>
+
+  <div class="container text-center border rounded shadow-md">
+    <h2 class="mt-1 bg-dark p-2 text-light" style="letter-spacing: 4px;">Order Description</h2>
+    <h4>Product(s) Description</h4>
+    <p *ngFor="let product of (items | async).cartItems; index as i"><b>Item:</b> {{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</p>
+    <h4>Order Total</h4>
+    <p><b>Total before tax:</b> ${{ beforeTax }}</p>
+    <p><b>Estimated tax to be collected:</b> ${{ taxSale }}</p>
+    <p><b>Total:</b> ${{ totalSale }}</p>
+  </div>
+
+  <br />
+  <div class="container border rounded shadow-md">
+    <h2 class="mt-1 bg-dark p-2 text-light text-center" style="letter-spacing: 4px;">Verify Shipping address</h2>
     <form #memberModel="ngForm">
       <div class="form-row lead">
         <div class="form-group col-md-6">
