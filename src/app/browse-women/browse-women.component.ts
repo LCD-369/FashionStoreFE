@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
 import { Router } from '@angular/router';
+import { fader } from '../route-animations';
 
 @Component({
   selector: 'app-browse-women',
   templateUrl: './browse-women.component.html',
-  styleUrls: ['./browse-women.component.css']
+  styleUrls: ['./browse-women.component.css'],
+  animations: [fader]
 })
 export class BrowseWomenComponent implements OnInit {
   products: Array<Product>;
   showChildComponent: boolean;
   ShowParentComponent: boolean;
-  isLoading: boolean;
   length = 100;
   currentProduct: Product;
   page: number = 1;
@@ -21,11 +22,9 @@ export class BrowseWomenComponent implements OnInit {
   ngOnInit() {
     this.showChildComponent = false;
     this.ShowParentComponent = true;
-    this.isLoading = true;
     this.productService.getProductsByCatGen('Female', 'Adult').subscribe(res => {
       this.products = res;
       this.length = res.length;
-      this.isLoading = false;
     });
   }
 

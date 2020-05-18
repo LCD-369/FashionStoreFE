@@ -131,7 +131,8 @@
   "defaultProject": "FashionStoreFE",
   "schematics": {
     "@schematics/angular:component": {
-      "style": "scss"
+      "style": "scss",
+      "styleext": "scss"
     }
   },
   "cli": {

@@ -2,9 +2,21 @@
 <div *ngIf="isLoading" style="text-align: center">
   <app-loading-spinner></app-loading-spinner>
 </div>
-<div *ngIf="!needRegister" class="container border rounded shadow-sm">
-  <h2 class="mb-3 mt-3 text-center bg-dark p-1 text-white">Member Profile</h2>
+<div *ngIf="!needRegister" class="container border rounded shadow-sm mt-2">
+  <h2 class="mb-3 mt-3 text-center p-1">Member Profile</h2>
+  <hr />
   <h2 class="mb-3 mt-3 text-center lead">Email: {{ userRegEmail }}</h2>
+  <div class="container text-center mb-2">
+    <button type="button" class="btn btn-outline-dark btn-md text-center" (click)="showDisplayOrders()">{{ pastOrder }}</button>
+  </div>
+
+
+  <div *ngIf="sd" class="container border rounded">
+    <ul class="list-group text-center b-1" *ngFor="let order of orders">
+      <li class="list-group-item mb-2 mt-2"><b>Order Id-</b>{{ order.orderid }}, <br /> <b>Payment Method-</b>{{ order.paymethod }}, <b>Purchase Date-</b>{{ order.orderdate }}, <b>Total-</b>{{ order.totalsale }}, <b>Purchases-</b>{{ order.products.length }}</li>
+    </ul>
+  </div>
+  <br />
   <form (ngSubmit)="onUpdate()" #memberModel="ngForm">
     <div class="form-row lead">
       <div class="form-group col-md-6">
@@ -63,7 +75,7 @@
 
 <!--Register-->
 <div *ngIf="needRegister" class="container border rounded shadow-sm">
-  <h2 class="mb-3 mt-3 text-center bg-dark p-1 text-white">Complete Registration</h2>
+  <h2 class="mb-3 mt-3 text-center bg-dark p-1 text-white rounded">Complete Registration</h2>
   <h2 class="mb-3 mt-3 text-center lead">Email: {{ userRegEmail }}</h2>
   <form (ngSubmit)="onRegister()" #memberModel="ngForm">
     <div class="form-row lead">

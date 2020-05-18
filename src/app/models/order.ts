@@ -1,11 +1,6 @@
 export class Order {
-  pk: string;
-  sk: string;
-  orderid: string;
-  username: string;
-  orderdate: string;
-  products: Array<any>;
-  totalsale: number;
-  tax: number;
-  couponcode: string;
+  constructor(public PK: string, public SK: string, public orderid: string,
+  public paymethod: string, public email: string, public orderdate: string,
+  public products: Array<any>, public totalsale: number, public tax: number,
+  public couponcode?: string) {}
 }

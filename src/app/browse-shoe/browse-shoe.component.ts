@@ -12,7 +12,6 @@ export class BrowseShoeComponent implements OnInit {
   products: Array<Product>;
   showChildComponent: boolean;
   ShowParentComponent: boolean;
-  isLoading: boolean;
   length = 100;
   currentProduct: Product;
   page: number = 1;
@@ -21,11 +20,9 @@ export class BrowseShoeComponent implements OnInit {
   ngOnInit() {
     this.showChildComponent = false;
     this.ShowParentComponent = true;
-    this.isLoading = true;
     this.productService.getProductsByCatGen('Male', 'Adult').subscribe(res => {
       this.products = res;
       this.length = res.length;
-      this.isLoading = false;
     });
   }
 

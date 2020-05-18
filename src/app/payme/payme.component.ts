@@ -7,7 +7,9 @@ import * as ShoppingListActions from '../cart/store/cart.actions';
 import { Observable, Subscription } from 'rxjs';
 import { Product } from '../models/product';
 import { Member } from '../models/Member';
+import { Order } from '../models/Order';
 import { MemberService } from '../services/member.service';
+import { OrderService } from '../services/order.service';
 declare var paypal;
 
 @Component({
@@ -24,14 +26,18 @@ export class PaymeComponent implements OnInit {
   private userSub: Subscription;
   element: Product[];
   model: Member;
+  // order: Order;
+  paypalorder: any;
+  confirmation: Order;
   paidFor = false;
   ShippingAdd: any;
   userRegEmail: any;
   totalSale = 0;
   taxSale = 0;
   beforeTax = 0;
-
-  constructor(private router: Router, private memberService: MemberService, private store: Store<fromApp.AppState>) { }
+  isLoading = false;
+  constructor(private router: Router, private orderServer: OrderService,
+    private memberService: MemberService, private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
     this.model = new Member(
@@ -40,7 +46,11 @@ export class PaymeComponent implements OnInit {
       'Falls Church', '22042', 'Virginia',
       'United States', '(111) 111-1111'
     );
-
+    this.confirmation = new Order(
+      'Error', 'Error',
+      'Error', 'Error', 'Error',
+      'Error', ['error'], 0, 0
+    );
     this.userSub = this.store.select('auth').pipe(map(authState => authState.user))
       .subscribe(user => {
         this.userRegEmail = user.email;
@@ -67,9 +77,12 @@ export class PaymeComponent implements OnInit {
         });
       },
       onApprove: async (data, actions) => {
-        const order = await actions.order.capture();
+        this.isLoading = true;
+        this.paypalorder = await actions.order.capture();
         this.paidFor = true;
-        console.log(order);
+        console.log(this.paypalorder);
+        this.sendOrderToBackEnd();
+        this.clearCart();
       },
       onError: err => {
         console.log(err);
@@ -111,15 +124,41 @@ export class PaymeComponent implements OnInit {
     this.totalSale += (this.taxSale+temp);
   }
 
-  // clearCart() {
-  //   this.items.forEach(element => {
-  //     var i = element.cartItems.findIndex.length;
-  //     var c = 0;
-  //     while (c < i) {
-  //       this.store.dispatch(new ShoppingListActions.RemoveProduct(c));
-  //     }
-  //   });
-  // }
+  clearCart() {
+
+      this.items.forEach(element => {
+        let c = element.cartItems.length;
+        let i = 0;
+        for(i; i < c; i++) {
+          this.store.dispatch(new ShoppingListActions.RemoveProduct(i));
+        }
+      });
+
+  }
+
+  sendOrderToBackEnd() {
+    let today = new Date(),
+    date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(),
+    time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+    sk = "ORDER",
+    pk = "ORDER_"+this.model.email+"_"+date+"_"+time,
+    orderid = this.paypalorder.id,
+    paymentmethod = "paypal",
+    email = this.model.email,
+    orderdate = date,
+    products = this.element,
+    totalsale = this.totalSale,
+    tax = this.taxSale ,
+    order = new Order(pk, sk, orderid, paymentmethod, email, orderdate, products, totalsale, tax);
+    this.orderServer.submitOrder(order).subscribe(res => {
+      this.confirmation = res;
+    });
+    this.isLoading = false;
+  }
+
+  onLoadHome() {
+    this.router.navigate(['/home']);
+  }
 
   ngOnDestroy() {
     this.userSub.unsubscribe();

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ComponentFactoryResolver, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
@@ -25,12 +25,12 @@ export class HeaderComponent implements OnInit {
   faShoppingCart = faShoppingCart;
   faUser = faUser;
 
+
   constructor(private router: Router, private store: Store<fromApp.AppState>,
     private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit() {
-    this.router.navigate(['home']);
-
+    this.onLoadHome();
     this.userSub = this.store
       .select('auth')
       .pipe(map(authState => authState.user))

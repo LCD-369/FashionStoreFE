@@ -1,14 +1,14 @@
 <ng-template appPlaceholder></ng-template>
 
-<div class="authcontainer container">
+<div class="authcontainer container mt-3">
   <br />
   <div class="container my-5 p-3">
     <div *ngIf="isLoading" style="text-align: center">
       <app-loading-spinner></app-loading-spinner>
     </div>
     <div class="row justify-content-center text-center">
-      <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-white rounded text-center" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));">
-        <h5>Log in to your account!</h5>
+      <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-white rounded text-center" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5))">
+        <h5 class="mt-2">Log in to your account!</h5>
         <fa-icon [icon]="faLock" size="2x"></fa-icon>
         <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
           <div class="form-group pt-2">
@@ -19,7 +19,7 @@
           <div class="form-group">
             <label  *ngIf="isLoginMode" for="password"><h3 style="letter-spacing: 1px">Password</h3></label>
             <label  *ngIf="!isLoginMode" for="password"><h3 style="letter-spacing: 1px">Register Account Password</h3></label>
-            <input type="password" id="password" class="form-control text-center" ngModel name="password" placeholder="enter password" required minlength="6" />
+            <input type="password" id="password" class="form-control text-center" ngModel name="password" placeholder="password" required minlength="6" />
           </div>
           <div>
             <button class="btn btn-light" type="submit" [disabled]="!authForm.valid">{{ isLoginMode ? 'Login' : 'Sign Up' }}</button> |
@@ -27,7 +27,8 @@
           </div>
           <br />
         </form>
-        <h5 class="text-white">or Forgot Password</h5>
+        <a href="#" class="btn text-white" role="button">or Forgot Password?</a>
+        <br />
       </div>
     </div>
   </div>

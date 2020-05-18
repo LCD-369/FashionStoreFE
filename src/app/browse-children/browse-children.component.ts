@@ -12,7 +12,6 @@ export class BrowseChildrenComponent implements OnInit {
   products: Array<Product>;
   showChildComponent: boolean;
   ShowParentComponent: boolean;
-  isLoading: boolean;
   length = 100;
   currentProduct: Product;
   page: number = 1;
@@ -22,11 +21,9 @@ export class BrowseChildrenComponent implements OnInit {
   ngOnInit() {
     this.showChildComponent = false;
     this.ShowParentComponent = true;
-    this.isLoading = true;
     this.productService.getProductsByCatGen('Male', 'Children').subscribe(res => {
       this.products = res;
       this.length = res.length;
-      this.isLoading = false;
     });
   }
 

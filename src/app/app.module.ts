@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import * as fromApp from './store/app.reducer';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +27,6 @@ import { ProductService } from './services/product.service';
 import { OrderService } from './services/order.service';
 import { MemberService } from './services/member.service';
 import { CouponService } from './services/coupon.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowseWomenComponent } from './browse-women/browse-women.component';
 import { BrowseMenComponent } from './browse-men/browse-men.component';
 import { BrowseChildrenComponent } from './browse-children/browse-children.component';
@@ -40,6 +39,7 @@ import { LogoComponent } from './logo/logo.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PaymeComponent } from './payme/payme.component';
+
 
 
 @NgModule({

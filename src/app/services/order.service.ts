@@ -9,8 +9,9 @@ import { Order } from '../models/Order';
   providedIn: 'root'
 })
 export class OrderService {
-  getUrl = 'http://localhost:3000/api/order';
-  postUrl = 'http://localhost:3000/api/order/';
+  getUrl = 'http://localhost:3000/api/order/';
+  putUrl = 'http://localhost:3000/api/order';
+
   constructor(private http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse) {
@@ -29,15 +30,14 @@ export class OrderService {
 
   //Submit completed order
   submitOrder(order: Order): Observable<Order> {
-    return this.http.post<Order>(this.postUrl, order)
+    return this.http.post<Order>(this.putUrl, order)
       .pipe(
         catchError(this.handleError)
       );
   }
 
   //Find & retreive order(s) by username
-  findOrderByUsername(username: string): Observable<Order[]> {
-      return this.http.get<Order[]>(this.postUrl+username).pipe(catchError(this.handleError));
+  findOrderByEmail(email: string): Observable<any> {
+    return this.http.get<any>(this.getUrl + email).pipe(catchError(this.handleError));
   }
-
 }

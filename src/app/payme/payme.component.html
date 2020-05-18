@@ -1,7 +1,11 @@
-<div class="container text-center" *ngIf="!paidFor">
+<div *ngIf="isLoading" style="text-align: center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="container text-center mt-2" *ngIf="!paidFor" [hidden]="isLoading">
 
-  <div class="container text-center border rounded shadow-md">
-    <h2 class="mt-1 bg-dark p-2 text-light" style="letter-spacing: 4px;">Order Description</h2>
+  <div class="container text-center border rounded shadow-md bg-light">
+    <h2 class="mt-1" style="letter-spacing: 3px;">Order Description</h2>
+    <hr />
     <h4>Product(s) Description</h4>
     <p *ngFor="let product of (items | async).cartItems; index as i"><b>Item:</b> {{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</p>
     <h4>Order Total</h4>
@@ -11,8 +15,9 @@
   </div>
 
   <br />
-  <div class="container border rounded shadow-md">
-    <h2 class="mt-1 bg-dark p-2 text-light text-center" style="letter-spacing: 4px;">Verify Shipping address</h2>
+  <div class="container border rounded shadow-md bg-light">
+    <h2 class="mt-1 text-center" style="letter-spacing: 3px;">Verify Shipping address</h2>
+    <hr />
     <form #memberModel="ngForm">
       <div class="form-row lead">
         <div class="form-group col-md-6">
@@ -65,11 +70,16 @@
     </form>
   </div>
 </div>
-<br />
-<div *ngIf="paidFor" class="container text-center">
-  <h1>Confirmation</h1>
 
+<br />
+<div *ngIf="paidFor" class="container text-center border rounded shadow-md bg-light">
+  <h1>Confirmation</h1>
+  <p><b>Order Id: </b>{{ confirmation.orderid }}</p>
+  <p><b>Payment Method: </b>{{ confirmation.paymethod }}</p>
+  <p><b>Order Date: </b>{{ confirmation.orderdate }}</p>
+  <p *ngFor="let product of (items | async).cartItems; index as i"><b>Items Ordered: </b> {{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</p>
+  <p><b>Total Sale: </b>{{ confirmation.totalsale }}</p>
 </div>
-<div class="container text-center">
+<div [hidden]="paidFor" class="container text-center">
   <div #paypal></div>
 </div>

@@ -25,11 +25,10 @@ const routes: Routes = [
   {path:'browse/shoes', component:BrowseShoeComponent},
   {path:'browse/accessory', component:BrowseAccessoryComponent},
   {path:'*', component:PageNotFoundComponent}
-
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }
