@@ -1,8 +1,14 @@
-.routeContainer {
-  position: relative;
-  
+:host {
+  display: block;
+  width: 100vw;
+  height: 100vh;
 }
 
-.routeContainer>* {
-  display: block;
+.routeContainer {
+
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  perspective: 1200px;
+  transform-style: preserve-3d;
 }

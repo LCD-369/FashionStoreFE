@@ -1,20 +1,17 @@
 
-<div class="container m-auto" *ngIf="ShowParentComponent">
+<div class="container-fluid m-auto" *ngIf="ShowParentComponent" style="background-color: #d9d7cf">
   <div class="row justify-content-center p-3">
-    <!-- <div class="col-auto"> -->
-      <div class="card text-center shadow-sm p-3 mx-2 my-2" *ngFor="let product of products | paginate: { itemsPerPage: 4, currentPage: page, totalItems: length }">
-        <h4 class="m-auto text-dark">{{product.CATEGORY}} {{product.GENDER}}</h4>
-        <h4 class="m-auto text-dark">{{product.COLOR}} {{product.TYPE}}</h4>
-        <img width="200" height="auto" src={{product.IMAGE}} alt="Photo">
-        <button type="button" class="btn btn-outline-dark btn-block p-1" (click)="onLoadDetails(product)">View Product</button>
+      <div class="card text-center shadow-sm p-3 mx-2 my-2"
+      *ngFor="let product of products | paginate: { itemsPerPage: 4, currentPage: page, totalItems: length }">
+        <h4 class="m-auto text-dark" style="font-weight: 300">{{product.CATEGORY}} {{product.GENDER}}</h4>
+        <h4 class="m-auto text-dark" style="font-weight: 300">{{product.COLOR}} {{product.TYPE}}</h4>
+        <img width="300" height="300" src={{product.IMAGE}} alt="Photo" class="mt-2">
+        <button type="button" class="btn btn-block p-1 shadow" (click)="onLoadDetails(product)" style="background-color: #232323; color: white; border-radius: 0;">View Product</button>
       </div>
-    <!-- </div> -->
-  </div>
+    </div>
   <hr />
-  <pagination-controls responsive="true" (pageChange)="page = $event"></pagination-controls>
 </div>
-
-<div class="container">
+<pagination-controls responsive="true" (pageChange)="page = $event" *ngIf="ShowParentComponent"></pagination-controls>
+<div class="container" [@fromTopEasing]="showChildComponent">
   <app-product-detail *ngIf="showChildComponent" [currentProduct]="currentProduct" (close)="onClose()"></app-product-detail>
 </div>
-<br />

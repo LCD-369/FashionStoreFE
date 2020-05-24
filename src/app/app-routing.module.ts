@@ -14,17 +14,17 @@ import { BrowseShoeComponent } from './browse-shoe/browse-shoe.component';
 import { BrowseAccessoryComponent } from './browse-accessory/browse-accessory.component';
 
 const routes: Routes = [
-  {path:'home', component:HomeComponent},
-  {path:'profile', canActivate: [AuthGuard], component:ProfileComponent},
-  {path:'auth', component:AuthComponent},
-  {path:'cart', component:CartComponent},
-  {path:'checkout', component:PaymeComponent},
-  {path:'browse/men', component:BrowseMenComponent},
-  {path:'browse/women', component:BrowseWomenComponent},
-  {path:'browse/children', component:BrowseChildrenComponent},
-  {path:'browse/shoes', component:BrowseShoeComponent},
-  {path:'browse/accessory', component:BrowseAccessoryComponent},
-  {path:'*', component:PageNotFoundComponent}
+  {path:'home', component:HomeComponent, data: {state:  'home'}},
+  {path:'profile', canActivate: [AuthGuard], component:ProfileComponent, data: {state:  'profile'}},
+  {path:'auth', component:AuthComponent, data: {state:  'auth'}},
+  {path:'cart', component:CartComponent, data: {state:  'cart'}},
+  {path:'checkout', component:PaymeComponent, data: {state:  'checkout'}},
+  {path:'browse/men', component:BrowseMenComponent, data: {state:  'browsemen'}},
+  {path:'browse/women', component:BrowseWomenComponent, data: {state:  'browsewomen'}},
+  {path:'browse/children', component:BrowseChildrenComponent, data: {state:  'browsechildren'}},
+  {path:'browse/shoes', component:BrowseShoeComponent, data: {state:  'browseshoes'}},
+  {path:'browse/accessory', component:BrowseAccessoryComponent, data: {state:  'accessory'}},
+  {path:'*', component:PageNotFoundComponent, data: {state:  '*'}}
 ];
 
 @NgModule({

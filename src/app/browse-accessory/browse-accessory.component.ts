@@ -2,11 +2,19 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
 import { Router } from '@angular/router';
+import  { trigger, transition, useAnimation }  from  "@angular/animations";
+import  { fromTopEasing }  from  "ngx-router-animations";
 
 @Component({
   selector: 'app-browse-accessory',
   templateUrl: './browse-accessory.component.html',
-  styleUrls: ['./browse-accessory.component.css']
+  styleUrls: ['./browse-accessory.component.css'],
+  animations: [
+   trigger('fromTopEasing', [ transition('* => *', useAnimation(fromTopEasing,{
+   	params: {enterTiming: '1', leaveTiming: '1', enterDelay: '0', leaveDelay: '0'}
+   	}
+   ))])
+]
 })
 export class BrowseAccessoryComponent implements OnInit {
   products: Array<Product>;
@@ -20,7 +28,7 @@ export class BrowseAccessoryComponent implements OnInit {
   ngOnInit() {
     this.showChildComponent = false;
     this.ShowParentComponent = true;
-    this.productService.getProductsByCatGen('Male', 'Adult').subscribe(res => {
+    this.productService.getProductsByCategory('Accessory').subscribe(res => {
       this.products = res;
       this.length = res.length;
     });

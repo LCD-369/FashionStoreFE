@@ -1,18 +1,16 @@
 <ng-template appPlaceholder></ng-template>
-<div class="container text-center mt-5">
+<div class="container text-center m-auto">
 
-  <div class="row align-items-center">
+  <div class="row align-items-center shadow-sm p-2">
     <div class="col">
-
-      <img  width="auto" height="300" src={{currentProduct.IMAGE}} alt="Photo">
+      <img  width="300" height="auto" src={{currentProduct.IMAGE}} alt="Photo">
     </div>
-    <div class="col">
-      <h1 class="m-auto text-dark"><i>Product Description</i></h1>
-      <h2 class="featurette-heading">{{currentProduct.CATEGORY}} {{currentProduct.GENDER}} {{currentProduct.COLOR}} {{currentProduct.TYPE}}. <span class="text-muted">${{currentProduct.PRICE}}</span></h2>
+    <div class="col text-center">
+      <h1 class="text-dark"><i>Product Description</i></h1>
+      <h2>{{currentProduct.CATEGORY}} {{currentProduct.GENDER}} {{currentProduct.COLOR}} {{currentProduct.TYPE}}. <span class="text-muted">${{currentProduct.PRICE}}</span></h2>
       <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      <button type="button" class="btn btn-outline-dark btn-lg btn-block p-1" (click)="addProductToCart()">Add to cart</button>
-      <button type="button" class="btn btn-outline-dark btn-lg btn-block p-1" (click)="onLoadBrowse()">Back</button>
+      <button type="button" class="btn btn-block p-1" style="background-color: #232323; color: white; border-radius: 0;" (click)="addProductToCart()">Add to cart</button>
+      <button type="button" class="btn btn-block p-1" style="background-color: #232323; color: white; border-radius: 0;" (click)="onLoadBrowse()">Back</button>
   </div>
 </div>
-<hr />
 </div>

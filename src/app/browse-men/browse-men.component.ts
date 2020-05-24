@@ -1,14 +1,20 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
-import { fader } from '../route-animations';
+import  { trigger, transition, useAnimation }  from  "@angular/animations";
+import  { fromTopEasing }  from  "ngx-router-animations";
 
 @Component({
   selector: 'app-browse-men',
   templateUrl: './browse-men.component.html',
   styleUrls: ['./browse-men.component.css'],
   changeDetection: ChangeDetectionStrategy.Default,
-  animations: [fader]
+  animations: [
+   trigger('fromTopEasing', [ transition('* => *', useAnimation(fromTopEasing,{
+   	params: {enterTiming: '1', leaveTiming: '1', enterDelay: '0', leaveDelay: '0'}
+   	}
+   ))])
+]
 })
 export class BrowseMenComponent implements OnInit {
   products: Array<Product>;

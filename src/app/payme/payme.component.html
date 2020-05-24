@@ -1,67 +1,68 @@
 <div *ngIf="isLoading" style="text-align: center">
   <app-loading-spinner></app-loading-spinner>
 </div>
-<div class="container text-center mt-2" *ngIf="!paidFor" [hidden]="isLoading">
+<div class="d-block" *ngIf="!paidFor" [hidden]="isLoading">
 
-  <div class="container text-center border rounded shadow-md bg-light">
-    <h2 class="mt-1" style="letter-spacing: 3px;">Order Description</h2>
-    <hr />
-    <h4>Product(s) Description</h4>
+  <div class="container text-center p-2" style="background-color: #d9d7cf">
+    <div class="container text-center" style="background-color: #232323">
+      <h2 class="text-light p-1" style="font-weight: 500">Order Description</h2>
+    </div>
+    <h4>Product(s) description</h4>
     <p *ngFor="let product of (items | async).cartItems; index as i"><b>Item:</b> {{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</p>
     <h4>Order Total</h4>
     <p><b>Total before tax:</b> ${{ beforeTax }}</p>
     <p><b>Estimated tax to be collected:</b> ${{ taxSale }}</p>
     <p><b>Total:</b> ${{ totalSale }}</p>
   </div>
-
   <br />
-  <div class="container border rounded shadow-md bg-light">
-    <h2 class="mt-1 text-center" style="letter-spacing: 3px;">Verify Shipping address</h2>
-    <hr />
+  <div class="container text-center p-2" style="background-color: #d9d7cf">
+    <div class="container text-center" style="background-color: #232323">
+      <h2 class="text-white p-1" style="font-weight: 500">Verify Shipping Address</h2>
+    </div>
     <form #memberModel="ngForm">
       <div class="form-row lead">
         <div class="form-group col-md-6">
-          <label for="firstname">First name</label>
-          <input type="text" class="form-control" id="firstname" placeholder={{model.firstname}} [(ngModel)]="model.firstname" name="firstname" required>
+          <label for="firstname"><b>First name</b></label>
+          <input type="text" class="form-control" style="text-align: center" id="firstname" placeholder={{model.firstname}} [(ngModel)]="model.firstname" name="firstname" required>
         </div>
         <div class="form-group col-md-6">
-          <label for="lastname">Last name</label>
-          <input type="text" class="form-control" id="lastname" placeholder={{model.lastname}} [(ngModel)]="model.lastname" name="lastname" required>
+          <label for="lastname"><b>Last name</b></label>
+          <input type="text" class="form-control" style="text-align: center" id="lastname" placeholder={{model.lastname}} [(ngModel)]="model.lastname" name="lastname" required>
         </div>
       </div>
       <div class="form-group lead">
-        <label for="addressstreet">Address</label>
-        <input type="text" class="form-control" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet" required>
+        <label for="addressstreet"><b>Address</b></label>
+        <input type="text" class="form-control" style="text-align: center" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet" required>
       </div>
 
       <div class="form-row lead">
         <div class="form-group col-md-6">
-          <label for="city">City</label>
-          <input type="text" class="form-control" id="city" placeholder={{model.city}} [(ngModel)]="model.city" name="city" required>
+          <label for="city"><b>City</b></label>
+          <input type="text" class="form-control" style="text-align: center" id="city" placeholder={{model.city}} [(ngModel)]="model.city" name="city" required>
         </div>
         <div class="form-group col-md-4 lead">
-          <label for="state">State</label>
-          <select id="state" class="form-control" [(ngModel)]="model.state" name="state" required>
+          <label for="state"><b>State</b></label>
+          <select id="state" class="form-control" style="text-align: center" [(ngModel)]="model.state" name="state" required>
             <option selected>Choose...</option>
             <option *ngFor="let state of states">{{state}}</option>
           </select>
         </div>
         <div class="form-group col-md-2 lead">
-          <label for="zipcode">Zip</label>
-          <input type="text" class="form-control" id="zipcode" placeholder={{model.zipcode}} [(ngModel)]="model.zipcode" name="zipcode" required>
+          <label for="zipcode"><b>Zip</b></label>
+          <input type="text" class="form-control" style="text-align: center" id="zipcode" placeholder={{model.zipcode}} [(ngModel)]="model.zipcode" name="zipcode" required>
         </div>
       </div>
       <div class="form-row lead">
         <div class="form-group col-md-4 lead">
-          <label for="country">Country</label>
-          <select id="country" class="form-control" [(ngModel)]="model.country" name="country" required>
+          <label for="country"><b>Country</b></label>
+          <select id="country" class="form-control" style="text-align: center" [(ngModel)]="model.country" name="country" required>
             <option selected>{{model.country}}</option>
             <option *ngFor="let country of countryList">{{country}}</option>
           </select>
         </div>
         <div class="form-group col-md-4 lead">
-          <label for="phone">Phone</label>
-          <input type="text" class="form-control" id="phone"  placeholder={{model.phone}} [(ngModel)]="model.phone" name="phone" appPhoneMaskDirective required>
+          <label for="phone"><b>Phone</b></label>
+          <input type="text" class="form-control" style="text-align: center" id="phone" placeholder={{model.phone}} [(ngModel)]="model.phone" name="phone" appPhoneMaskDirective required>
         </div>
       </div>
       <div class="form-row lead justify-content-center">
@@ -69,11 +70,14 @@
       </div>
     </form>
   </div>
+  <br />
 </div>
 
 <br />
-<div *ngIf="paidFor" class="container text-center border rounded shadow-md bg-light">
-  <h1>Confirmation</h1>
+<div *ngIf="paidFor" class="container text-center shadow-sm p-2" style="background-color: #d9d7cf">
+  <div class="container text-center" style="background-color: #232323">
+    <h1 class="p-2" style="font-weight: 500; color: #d9d7cf">CONFIRMATION</h1>
+  </div>
   <p><b>Order Id: </b>{{ confirmation.orderid }}</p>
   <p><b>Payment Method: </b>{{ confirmation.paymethod }}</p>
   <p><b>Order Date: </b>{{ confirmation.orderdate }}</p>

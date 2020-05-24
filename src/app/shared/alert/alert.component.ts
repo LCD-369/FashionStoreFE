@@ -9,7 +9,14 @@ export class AlertComponent {
   @Input() message: string;
   @Output() close = new EventEmitter<void>();
 
+  ngOnInit() {
+    setTimeout(()=> {
+      this.close.emit();
+    },2000);
+  }
+
   onClose() {
     this.close.emit();
   }
+
 }

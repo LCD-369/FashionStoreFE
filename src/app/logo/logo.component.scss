@@ -1,12 +1,18 @@
 .bgMain {
-  /* display: block;
-  width: 99%;
-  margin: auto;
-  height: auto; */
+  display: block;
+  width: 100vw;
+  height: 100vh;
+
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 	url("/assets/images/lights3.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  /* background-attachment: fixed; */
+  background-attachment: fixed;
+}
+
+:host {
+  display: block;
+  width: 100vw;
+  height: 100vh;
 }

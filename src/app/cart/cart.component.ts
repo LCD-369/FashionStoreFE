@@ -5,6 +5,7 @@ import * as fromApp from '../store/app.reducer';
 import * as ShoppingListActions from '../cart/store/cart.actions';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-cart',
@@ -14,6 +15,7 @@ import { Product } from '../models/product';
 export class CartComponent implements OnInit {
   items: Observable<{ cartItems: Product[] }>;
   element: any;
+  faShoppingCart = faShoppingCart;
   constructor(private router: Router, private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {

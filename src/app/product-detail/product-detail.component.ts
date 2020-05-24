@@ -6,13 +6,19 @@ import * as ShoppingListActions from '../cart/store/cart.actions';
 import { Subscription } from 'rxjs';
 import { AlertComponent } from '../shared/alert/alert.component';
 import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
-import { fader } from '../route-animations';
+import  { trigger, transition, useAnimation }  from  "@angular/animations";
+import  { fromTopEasing }  from  "ngx-router-animations";
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css'],
-  animations: [fader]
+  animations: [
+   trigger('fromTopEasing', [ transition('* => *', useAnimation(fromTopEasing,{
+   	params: {enterTiming: '1', leaveTiming: '1', enterDelay: '0', leaveDelay: '0'}
+   	}
+   ))])
+]
 })
 export class ProductDetailComponent implements OnInit {
   @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;

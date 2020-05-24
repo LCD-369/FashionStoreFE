@@ -1,11 +1,23 @@
 
+
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #d9d7cf;
+  z-index: 50;
+}
+
 .spinner {
   margin: 100px auto;
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 300px;
   position: relative;
   text-align: center;
-
+  z-index: 99;
   -webkit-animation: sk-rotate 2.0s infinite linear;
   animation: sk-rotate 2.0s infinite linear;
 }
