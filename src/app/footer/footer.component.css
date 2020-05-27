@@ -1,6 +1,24 @@
-.fixed {
-  position: -webkit-fixed-bottom; /* Safari */
-  position: fixed-bottom;
-  z-index: 20;
-  top: 0;
+footer {
+  background-color: #272727;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+}
+
+@media only screen and (max-width: 950px) {
+  footer {
+    background-color: #272727;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-height: 950px) {
+  footer {
+    background-color: #272727;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
 }

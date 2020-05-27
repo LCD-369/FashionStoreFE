@@ -9,9 +9,10 @@ import { Order } from '../models/Order';
   providedIn: 'root'
 })
 export class OrderService {
-  getUrl = 'http://localhost:3000/api/order/';
-  putUrl = 'http://localhost:3000/api/order';
-
+  // getUrl = 'http://localhost:3000/api/order/';
+  // putUrl = 'http://localhost:3000/api/order';
+  getUrl = 'http://www.fashionrusbackend.com:3000/api/order/';
+  putUrl = 'http://www.fashionrusbackend.com:3000/api/order';
   constructor(private http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse) {

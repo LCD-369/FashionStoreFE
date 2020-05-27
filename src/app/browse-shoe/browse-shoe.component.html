@@ -11,6 +11,6 @@
   <hr />
 </div>
 <pagination-controls responsive="true" (pageChange)="page = $event" *ngIf="ShowParentComponent"></pagination-controls>
-<div class="container" [@fromTopEasing]="showChildComponent">
+<div class="container" [@fromLeftEasing]="showChildComponent">
   <app-product-detail *ngIf="showChildComponent" [currentProduct]="currentProduct" (close)="onClose()"></app-product-detail>
 </div>

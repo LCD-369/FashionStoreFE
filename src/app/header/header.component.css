@@ -1,10 +1,4 @@
 
-.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
 
 .grow:hover, .button:hover {
   -webkit-transform: scale(1.05);
@@ -32,13 +26,3 @@
   border: none;
   border-radius: 0;
 }
-
-/* .button:active, .grow  {
-  background-color: #ebebeb;
-  box-shadow: none;
-}
-
-.button:hover, .grow:hover, {
-  background-color: #d9d7cf;
-  box-shadow: none;
-} */

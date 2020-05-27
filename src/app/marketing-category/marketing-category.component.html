@@ -1,123 +1,34 @@
-
-
-
-<div class="bgMain">
-  <div class="container">
-    <div class="row text-center shadow-sm" style="background-color: #d9d7cf">
-      <div class="col-auto text-dark" style="width: 100%">
-        <h1 class="display-4 font-italic text-dark" style="text-shadow: 2px 7px 5px rgba(0,0,0,0.3),
-          0px -4px 10px rgba(255,255,255,0.3)">SPRING AND SUMMER SALE!</h1>
-        <p class="lead text-dark" style="font-weight: 500">Receive a 10% discount at checkout for all spring and summer apperel.</p>
-      </div>
+<div class="container-fluid" style="background-color: #d9d7cf">
+  <div class="row text-center justify-content-center">
+    <div class="col-auto text-dark">
+      <h1 class="display-5 font-italic text-dark" style="text-shadow: 2px 7px 5px rgba(0,0,0,0.3),
+        0px -4px 10px rgba(255,255,255,0.3)">SPRING AND SUMMER SALE!</h1>
+      <p class="lead text-dark" style="font-weight: 500">Receive a 10% discount at checkout for all spring and summer apperel.</p>
     </div>
   </div>
-  <div class="container py-3">
-    <div class="card card-row mb-3">
-      <div class="row no-gutters" style="border-radius: 0;">
-        <div class="col-12 col-md-6 bg-cover1 ">
-          <img src="assets/images/wf.jpg" alt="..." class="img-fluid d-md-none invisible">
-          <!-- Shape -->
-          <div class="shape shape-right shape-fluid-y svg-shim text-white d-none d-md-block">
-            <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M116 0H51v172C76 384 0 517 0 517v173h116V0z" fill="currentColor" /></svg>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 order-md-1">
-          <div class="card-body">
-            <blockquote class="blockquote mb-0 text-center">
-              <p class="mb-5 mb-md-7">
-                New styles hitting our shelves every week, there's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.
-              </p>
-              <footer>
-                <div type="button" class="btn btn-md" style="background-color: #232323; color: white; border-radius: 0;" (click)="onLoadFemaleBrowse()">Shop women</div>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
+</div>
+<div class="container">
+  <carousel [isAnimated]="true" [showIndicators]="false">
+    <slide>
+      <img src="assets/images/wclothing.jpg" alt="First slide" style="display: block; width: 100%; height: 100%">
+      <div class="carousel-caption" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))">
+        <p class="lead p-1">New styles hitting our shelves every week, there's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.</p>
+        <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadFemaleBrowse()">Shop women</button>
       </div>
-    </div>
-    <div class="card card-row mb-3">
-      <div class="row no-gutters">
-        <div class="col-12 col-md-6 bg-cover2  order-md-1">
-          <img src="assets/images/mf.jpg" alt="..." class="img-fluid d-md-none invisible">
-          <!-- Shape -->
-          <div class="shape shape-left shape-fluid-y svg-shim text-white d-none d-md-block">
-            <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M116 0H51v172C76 384 0 517 0 517v173h116V0z" fill="currentColor" /></svg>
-          </div>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="card-body">
-            <blockquote class="blockquote mb-0 text-center">
-              <p class="mb-5 mb-md-7">
-                Find Stylish and Classy Clothing For Men. Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.
-              </p>
-              <footer>
-                <div type="button" class="btn btn-md" style="background-color: #232323; color: white; border-radius: 0;" (click)="onLoadMaleBrowse()">Shop men</div>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
+    </slide>
+    <slide>
+      <img src="assets/images/mclothing.jpg" class="img-fluid" alt="Second slide" style="display: block; width: 100%;  height: 100%">
+      <div class="carousel-caption" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))">
+        <p class="lead p-1">Find Stylish and Classy Clothing For Men. Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.</p>
+        <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadMaleBrowse()">Shop men</button>
       </div>
-    </div>
-    <div class="card card-row ">
-      <div class="row no-gutters" style="border-radius: 0;">
-        <div class="col-12 col-md-6 bg-cover3 ">
-          <img src="assets/images/cld2.jpg" alt="..." class="img-fluid d-md-none invisible">
-          <!-- Shape -->
-          <div class="shape shape-right shape-fluid-y svg-shim text-white d-none d-md-block">
-            <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M116 0H51v172C76 384 0 517 0 517v173h116V0z" fill="currentColor" /></svg>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 order-md-1">
-          <div class="card-body">
-            <blockquote class="blockquote mb-0 text-center">
-              <p class="mb-5 mb-md-7">
-                Designer New in of Clothing & Accessories for kids. Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.
-              </p>
-              <footer>
-                <div type="button" class="btn btn-md" style="background-color: #232323; color: white; border-radius: 0;" (click)="onLoadChildrenBrowse()">Shop children</div>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
+    </slide>
+    <slide>
+      <img src="assets/images/kclothing.jpg" class="img-fluid" alt="Third slide" style="display: block; width: 100%;  height: 100%">
+      <div class="carousel-caption" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))">
+        <p class="lead p-1">Designer New in of Clothing & Accessories for kids. Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.</p>
+        <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadChildrenBrowse()">Shop children</button>
       </div>
-    </div>
-  </div>
-  <!-- <div class="container pt-2">
-    <div class="card-group">
-      <div class="card grow">
-        <img src="assets/images/women/femalemodel.jpg" class="card-img-top p-0 m-0" alt="...">
-        <div class="card-body text-center" style="background-color: #d9d7cf">
-          <h4 class="card-title text-light lead p-1 " style="font-size: 200%; background-color: #232323">Shop Women Apperel</h4>
-          <p class="card-text lead">New styles hitting our shelves every week, there's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.</p>
-        </div>
-        <div class="card-footer text-center" style="background-color: #d9d7cf">
-          <div type="button" class="btn btn-md" style="background-color: #232323; color: white; border-radius: 0;" (click)="onLoadFemaleBrowse()">Shop women</div>
-        </div>
-      </div>
-      <div class="card grow">
-        <img src="assets/images/men/malemodel.jpg" class="card-img-top p-0 m-0" alt="...">
-        <div class="card-body text-center" style="background-color: #d9d7cf">
-          <h4 class="card-title text-light lead p-1" style="font-size: 200%; background-color: #232323">Shop Men Apperel</h4>
-          <p class="card-text lead">Find Stylish and Classy Clothing For Men. Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.</p>
-        </div>
-        <div class="card-footer text-center" style="background-color: #d9d7cf">
-          <div type="button" class="btn btn-md" style="background-color: #232323; color: white; border-radius: 0;" (click)="onLoadMaleBrowse()">Shop men</div>
-        </div>
-      </div>
-
-      <div class="card grow">
-        <img src="assets/images/children/childmodelgirl.jpg" class="card-img-top p-0 m-0" alt="...">
-        <div class="card-body text-center" style="background-color: #d9d7cf">
-          <h4 class="card-title text-light lead p-1" style="font-size: 200%; background-color: #232323">Shop Children Apperel</h4>
-          <p class="card-text lead">Designer New in of Clothing & Accessories for kids. Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.</p>
-        </div>
-        <div class="card-footer text-center" style="background-color: #d9d7cf">
-          <div type="button" class="btn btn-md" style="background-color: #232323; color: white; border-radius: 0;" (click)="onLoadChildrenBrowse()">Shop children</div>
-        </div>
-      </div>
-    </div>
-  </div> -->
+    </slide>
+  </carousel>
 </div>

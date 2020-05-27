@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
 import  { trigger, transition, useAnimation }  from  "@angular/animations";
-import  { fromTopEasing }  from  "ngx-router-animations";
+import  { fromLeftEasing }  from  "ngx-router-animations";
 
 @Component({
   selector: 'app-browse-men',
@@ -10,7 +10,7 @@ import  { fromTopEasing }  from  "ngx-router-animations";
   styleUrls: ['./browse-men.component.css'],
   changeDetection: ChangeDetectionStrategy.Default,
   animations: [
-   trigger('fromTopEasing', [ transition('* => *', useAnimation(fromTopEasing,{
+   trigger('fromLeftEasing', [ transition('* => *', useAnimation(fromLeftEasing,{
    	params: {enterTiming: '1', leaveTiming: '1', enterDelay: '0', leaveDelay: '0'}
    	}
    ))])

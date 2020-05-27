@@ -1,19 +1,7 @@
 
-/*
-.bgMain {
-  display: block;
-  width: 100vw;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-	url("/assets/images/lights3.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-
-} */
-
 .bg-cover1 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-	url("/assets/images/wf.jpg");
+	url("/assets/images/wclothing.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -22,7 +10,7 @@
 
 .bg-cover2 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-	url("/assets/images/mf.jpg");
+	url("/assets/images/mclothing.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -30,7 +18,7 @@
 }
 .bg-cover3 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-	url("/assets/images/cld3.jpg");
+	url("/assets/images/kclothing.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

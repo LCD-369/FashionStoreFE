@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import * as fromApp from './store/app.reducer';
@@ -77,6 +78,7 @@ import { PaymeComponent } from './payme/payme.component';
     SharedModule,
     CoreModule,
     NgxPaginationModule,
+    CarouselModule.forRoot(),
     CollapseModule.forRoot(),
     FontAwesomeModule
   ],

@@ -4,14 +4,14 @@ import { Store } from '@ngrx/store';
 import * as fromApp from './store/app.reducer';
 import * as AuthActions from './auth/store/auth.actions';
 import { trigger, transition, useAnimation } from "@angular/animations";
-import { fromTopEasing } from "ngx-router-animations";
+import { fromLeftEasing } from "ngx-router-animations";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    trigger('fromTopEasing', [transition('* => *', useAnimation(fromTopEasing, {
+    trigger('fromLeftEasing', [transition('* => *', useAnimation(fromLeftEasing, {
       params: { enterTiming: '1', leaveTiming: '1', enterDelay: '0', leaveDelay: '0' }
     }
     ))])

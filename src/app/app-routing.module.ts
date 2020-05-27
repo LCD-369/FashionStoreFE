@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -28,7 +29,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules, useHash: true},)],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
