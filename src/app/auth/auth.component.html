@@ -1,11 +1,11 @@
 <ng-template appPlaceholder></ng-template>
-
-<div class="authcontainer container-fluid shadow">
+<div class="container" *ngIf="isLoading" style="text-align: center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div [hidden]="isLoading" class="authcontainer container">
   <br />
-  <div class="container my-5 p-3">
-    <div *ngIf="isLoading" style="text-align: center">
-      <app-loading-spinner></app-loading-spinner>
-    </div>
+  <div class="container p-3">
+
     <div class="row justify-content-center text-center">
       <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-dark rounded text-center bgImage">
         <h5 class="mt-2">Log in to your account!</h5>
@@ -25,11 +25,12 @@
             <button class="btn btn-md" type="submit" [disabled]="!authForm.valid" style="background-color: #232323; color: white; border-radius: 0;">{{ isLoginMode ? 'Login' : 'Sign Up' }}</button> |
             <button class="btn btn-md" (click)="onSwitchMode()" type="button" style="background-color: #232323; color: white; border-radius: 0;">Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}</button>
           </div>
-          <br />
         </form>
-        <a href="#" class="btn text-dark" role="button">or Forgot Password?</a>
-        <br />
+        <a href="#" class="btn text-dark mb-3" role="button">or Forgot Password?</a>
+
       </div>
     </div>
   </div>
+
 </div>
+<app-footer [hidden]="isLoading"></app-footer>

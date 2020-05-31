@@ -35,11 +35,12 @@ export class PaymeComponent implements OnInit {
   totalSale = 0;
   taxSale = 0;
   beforeTax = 0;
-  isLoading = false;
+  isLoading: boolean;
   constructor(private router: Router, private orderServer: OrderService,
     private memberService: MemberService, private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
+    this.isLoading = false;
     this.model = new Member(
       '', 'MEMBER', 'johndoe@email.com',
       'John', 'Doe', '1234 Cherry Road',
@@ -64,6 +65,7 @@ export class PaymeComponent implements OnInit {
 
     paypal.Buttons({
       createOrder: (data, actions) => {
+        this.isLoading = true;
         return actions.order.create({
           purchase_units: [
             {
@@ -77,7 +79,6 @@ export class PaymeComponent implements OnInit {
         });
       },
       onApprove: async (data, actions) => {
-        this.isLoading = true;
         this.paypalorder = await actions.order.capture();
         this.paidFor = true;
         console.log(this.paypalorder);
@@ -85,6 +86,7 @@ export class PaymeComponent implements OnInit {
         this.clearCart();
       },
       onError: err => {
+        this.isLoading = true;
         console.log(err);
       }
     }).render(this.paypalElement.nativeElement);
@@ -121,35 +123,33 @@ export class PaymeComponent implements OnInit {
   calculateSalesTax() {
     let temp = this.beforeTax;
     this.taxSale = (temp / 6.25);
-    this.totalSale += (this.taxSale+temp);
+    this.totalSale += (this.taxSale + temp);
   }
 
   clearCart() {
 
-      this.items.forEach(element => {
-        let c = element.cartItems.length;
-        let i = 0;
-        for(i; i < c; i++) {
-          this.store.dispatch(new ShoppingListActions.RemoveProduct(i));
-        }
-      });
-
+    this.items.forEach(element => {
+      let c = element.cartItems.length;
+      for (var i = 0; i < c; i++) {
+        this.store.dispatch(new ShoppingListActions.RemoveProduct(i));
+      }
+    });
   }
 
   sendOrderToBackEnd() {
     let today = new Date(),
-    date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(),
-    time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
-    sk = "ORDER",
-    pk = "ORDER_"+this.model.email+"_"+date+"_"+time,
-    orderid = this.paypalorder.id,
-    paymentmethod = "paypal",
-    email = this.model.email,
-    orderdate = date,
-    products = this.element,
-    totalsale = this.totalSale,
-    tax = this.taxSale ,
-    order = new Order(pk, sk, orderid, paymentmethod, email, orderdate, products, totalsale, tax);
+      date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(),
+      time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+      sk = "ORDER",
+      pk = "ORDER_" + this.model.email + "_" + date + "_" + time,
+      orderid = this.paypalorder.id,
+      paymentmethod = "paypal",
+      email = this.model.email,
+      orderdate = date,
+      products = this.element,
+      totalsale = this.totalSale,
+      tax = this.taxSale,
+      order = new Order(pk, sk, orderid, paymentmethod, email, orderdate, products, totalsale, tax);
     this.orderServer.submitOrder(order).subscribe(res => {
       this.confirmation = res;
     });

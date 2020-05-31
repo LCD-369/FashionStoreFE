@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import * as fromApp from './store/app.reducer';
@@ -40,6 +39,7 @@ import { LogoComponent } from './logo/logo.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PaymeComponent } from './payme/payme.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -78,9 +78,9 @@ import { PaymeComponent } from './payme/payme.component';
     SharedModule,
     CoreModule,
     NgxPaginationModule,
-    CarouselModule.forRoot(),
     CollapseModule.forRoot(),
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbModule
   ],
   providers: [OrderService, ProductService, MemberService, CouponService],
   bootstrap: [AppComponent]

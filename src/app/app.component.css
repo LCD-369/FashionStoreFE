@@ -1,13 +1,14 @@
 :host {
-  display: block;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
 }
 
 .routeContainer {
   position: relative;
   width: 100vw;
   height: 100vh;
-  perspective: 1200px;
+  perspective: auto;
   transform-style: preserve-3d;
 }

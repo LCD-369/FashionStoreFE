@@ -2,15 +2,16 @@
 
 html, body {
   font-family: 'Oxygen', sans-serif;
-  margin: 0;
-  padding: 0;
   overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none !important; /* Firefox */
   -ms-overflow-style: none;
-  position: relative;
+  -webkit-overflow-scrolling: touch;
+  height:100%;
 }
 
 ::-webkit-scrollbar { /* WebKit */
-    width: 0;
-    height: 0;
+    display: none;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

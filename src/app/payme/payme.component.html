@@ -1,11 +1,16 @@
-<div *ngIf="isLoading" style="text-align: center">
+<div class="container" *ngIf="isLoading" style="text-align: center">
   <app-loading-spinner></app-loading-spinner>
 </div>
-<div class="d-block" *ngIf="!paidFor" [hidden]="isLoading">
 
-  <div class="container text-center p-2" style="background-color: #d9d7cf">
-    <div class="container text-center" style="background-color: #232323">
-      <h2 class="text-light p-1" style="font-weight: 500">Order Description</h2>
+<div *ngIf="!paidFor">
+
+
+
+  <div [hidden]="isLoading" class="container text-center" style="background-color: #d9d7cf">
+    <div class="text-center">
+      <h2 class="display-4 text-dark" style="text-shadow: 2px 7px 5px rgba(0,0,0,0.3),
+        0px -4px 10px rgba(255,255,255,0.3)">Order Description</h2>
+      <hr />
     </div>
     <h4>Product(s) description</h4>
     <p *ngFor="let product of (items | async).cartItems; index as i"><b>Item:</b> {{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</p>
@@ -13,11 +18,12 @@
     <p><b>Total before tax:</b> ${{ beforeTax }}</p>
     <p><b>Estimated tax to be collected:</b> ${{ taxSale }}</p>
     <p><b>Total:</b> ${{ totalSale }}</p>
-  </div>
-  <br />
-  <div class="container text-center p-2" style="background-color: #d9d7cf">
-    <div class="container text-center" style="background-color: #232323">
-      <h2 class="text-white p-1" style="font-weight: 500">Verify Shipping Address</h2>
+
+
+    <div class="text-center">
+      <h2 class="display-4 text-dark" style="text-shadow: 2px 7px 5px rgba(0,0,0,0.3),
+        0px -4px 10px rgba(255,255,255,0.3)">Verify Shipping Address</h2>
+      <hr />
     </div>
     <form #memberModel="ngForm">
       <div class="form-row lead">
@@ -34,7 +40,6 @@
         <label for="addressstreet"><b>Address</b></label>
         <input type="text" class="form-control" style="text-align: center" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet" required>
       </div>
-
       <div class="form-row lead">
         <div class="form-group col-md-6">
           <label for="city"><b>City</b></label>
@@ -69,14 +74,13 @@
         <!-- <button class="btn btn-outline-dark btn-lg">Update Shipping</button> -->
       </div>
     </form>
-  </div>
   <br />
 </div>
-
-<br />
+</div>
 <div *ngIf="paidFor" class="container text-center shadow-sm p-2" style="background-color: #d9d7cf">
-  <div class="container text-center" style="background-color: #232323">
-    <h1 class="p-2" style="font-weight: 500; color: #d9d7cf">CONFIRMATION</h1>
+  <div class="text-center">
+    <h1 class="display-4 text-dark" style="text-shadow: 2px 7px 5px rgba(0,0,0,0.3),
+      0px -4px 10px rgba(255,255,255,0.3)">CONFIRMATION</h1>
   </div>
   <p><b>Order Id: </b>{{ confirmation.orderid }}</p>
   <p><b>Payment Method: </b>{{ confirmation.paymethod }}</p>
@@ -84,6 +88,6 @@
   <p *ngFor="let product of (items | async).cartItems; index as i"><b>Items Ordered: </b> {{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</p>
   <p><b>Total Sale: </b>{{ confirmation.totalsale }}</p>
 </div>
-<div [hidden]="paidFor" class="container text-center">
+<div [hidden]="paidFor" class="container text-center mt-1">
   <div #paypal></div>
 </div>

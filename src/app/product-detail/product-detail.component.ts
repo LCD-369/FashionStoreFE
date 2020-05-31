@@ -6,19 +6,12 @@ import * as ShoppingListActions from '../cart/store/cart.actions';
 import { Subscription } from 'rxjs';
 import { AlertComponent } from '../shared/alert/alert.component';
 import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
-import  { trigger, transition, useAnimation }  from  "@angular/animations";
-import  { fromTopEasing }  from  "ngx-router-animations";
+
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css'],
-  animations: [
-   trigger('fromTopEasing', [ transition('* => *', useAnimation(fromTopEasing,{
-   	params: {enterTiming: '1', leaveTiming: '1', enterDelay: '0', leaveDelay: '0'}
-   	}
-   ))])
-]
 })
 export class ProductDetailComponent implements OnInit {
   @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;
@@ -55,7 +48,7 @@ export class ProductDetailComponent implements OnInit {
 
     const componentRef = hostViewContainerRef.createComponent(alertCmpFactory);
 
-    componentRef.instance.message = 'Product added to cart.';
+    componentRef.instance.message = 'Product added to cart';
 
     this.closeSub = componentRef.instance.close.subscribe(() => {
       this.closeSub.unsubscribe();

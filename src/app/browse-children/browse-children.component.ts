@@ -3,15 +3,15 @@ import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
 import { Router } from '@angular/router';
 import  { trigger, transition, useAnimation }  from  "@angular/animations";
-import  { fromLeftEasing }  from  "ngx-router-animations";
+import  { fromBottomEasing }  from  "ngx-router-animations";
 
 @Component({
   selector: 'app-browse-children',
   templateUrl: './browse-children.component.html',
   styleUrls: ['./browse-children.component.css'],
   animations: [
-   trigger('fromLeftEasing', [ transition('* <=> *', useAnimation(fromLeftEasing,{
-   	params: {enterTiming: '1', leaveTiming: '1', enterDelay: '0', leaveDelay: '0'}
+   trigger('fromBottomEasing', [ transition('* <=> *', useAnimation(fromBottomEasing,{
+   	params: {enterTiming: '1', leaveTiming: '0', enterDelay: '0', leaveDelay: '0'}
    	}
    ))])
 ]

@@ -1,5 +1,4 @@
 footer {
-  background-color: #272727;
   left: 0;
   bottom: 0;
   width: 100vw;
@@ -7,7 +6,6 @@ footer {
 
 @media only screen and (max-width: 950px) {
   footer {
-    background-color: #272727;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -16,7 +14,6 @@ footer {
 
 @media only screen and (max-height: 950px) {
   footer {
-    background-color: #272727;
     left: 0;
     bottom: 0;
     width: 100%;

@@ -12,7 +12,7 @@ import { fromLeftEasing } from "ngx-router-animations";
   styleUrls: ['./app.component.css'],
   animations: [
     trigger('fromLeftEasing', [transition('* => *', useAnimation(fromLeftEasing, {
-      params: { enterTiming: '1', leaveTiming: '1', enterDelay: '0', leaveDelay: '0' }
+      params: { enterTiming: '1', leaveTiming: '0', enterDelay: '0', leaveDelay: '0' }
     }
     ))])
   ]

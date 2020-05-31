@@ -1,9 +1,9 @@
-<div class="container text-center p-2 shadow" style="background-color: #d9d7cf">
-  <div class="container p-1" style="background-color: #232323">
-    <h2 class="text-white" style="font-weight: 400">Shopping Cart</h2>
-  </div>
-  <h3 *ngIf="checkIfCartIsEmpty()" class="text-dark bg-light mt-1 p-2"><i>No items in cart</i></h3>
-  <div class="row justify-content-center mt-2">
+<div class="container p-1 text-center" style="background-color: #232323">
+  <h2 class="text-white" style="font-weight: 400">Shopping Cart</h2>
+</div>
+<div class="container text-center shadow" style="background-color: #d9d7cf">
+  <h3 *ngIf="checkIfCartIsEmpty()" class="text-dark bg-light p-2"><i>No items in cart</i></h3>
+  <div class="row justify-content-center pt-2">
     <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
       <ul class="list-group list-group-flush">
         <li class="list-group-item text-center text-dark justify-content-between" *ngFor="let product of (items | async).cartItems; index as i">
