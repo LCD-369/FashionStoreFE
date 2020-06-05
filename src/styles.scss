@@ -9,9 +9,10 @@ html, body {
   height:100%;
 }
 
+body {
+  background-color: #232323 !important;
+}
+
 ::-webkit-scrollbar { /* WebKit */
     display: none;
 }
-
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';

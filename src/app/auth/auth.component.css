@@ -4,18 +4,23 @@
 }
 
 .authcontainer {
-  width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/lights3.jpg");
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/assets/images/FRUbg1.svg");
   background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-attachment: fixed;
+  border-radius: 0;
+  padding: 50px;
 }
 
 .bgImage {
   background-color: #d9d7cf;
   background-position: center center;
   background-repeat: no-repeat;
+  border-radius: 0;
 }
 
 :host {

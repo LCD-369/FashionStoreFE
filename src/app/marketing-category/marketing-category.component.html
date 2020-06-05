@@ -1,40 +1,114 @@
-<div class="container" style="background-color: #d9d7cf">
-  <div class="row text-center justify-content-center">
-    <div class="col-auto text-dark">
-      <h1 class="display-5 font-italic text-dark" style="text-shadow: 2px 7px 5px rgba(0,0,0,0.3),
-        0px -4px 10px rgba(255,255,255,0.3)">SPRING AND SUMMER SALE!</h1>
-      <p class="lead text-dark" style="font-weight: 500">Receive a 10% discount at checkout for all spring and summer apperel.</p>
-    </div>
+<div class="marketingblock">
+  <div class="d-block">
+    <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+      <mdb-carousel-item>
+        <div class="view">
+          <img class="d-block w-100" src="assets/images/mclothing.jpg" alt="First slide">
+          <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+        </div>
+        <div class="carousel-caption">
+          <div class="animated fadeInDown delay-1s">
+            <p class="lead p-1" style="font-size: 3vw">Find Stylish and Classy Clothing For Men. Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.</p>
+            <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadMaleBrowse()">Shop men</button>
+          </div>
+        </div>
+      </mdb-carousel-item>
+      <mdb-carousel-item>
+        <div class="view">
+          <img class="d-block w-100" src="assets/images/wclothing.jpg" alt="Second slide">
+          <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+        </div>
+        <div class="carousel-caption">
+          <div class="animated fadeInDown delay-1s">
+            <p class="lead p-1" style="font-size: 3vw">New styles hitting our shelves every week, there's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.</p>
+            <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadFemaleBrowse()">Shop women</button>
+          </div>
+        </div>
+      </mdb-carousel-item>
+      <mdb-carousel-item>
+        <div class="view">
+          <img class="d-block w-100" src="assets/images/kclothing.jpg" alt="Third slide">
+          <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+        </div>
+        <div class="carousel-caption">
+          <div class="animated fadeInDown delay-1s">
+            <p class="lead p-1" style="font-size: 3vw">Designer New in of Clothing & Accessories for kids. Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.</p>
+            <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadChildrenBrowse()">Shop children</button>
+          </div>
+      </div>
+      </mdb-carousel-item>
+    </mdb-carousel>
   </div>
+  <app-featurette-divider></app-featurette-divider>
 </div>
-<div class="container carousel-block">
-  <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators" >
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="assets/images/wclothing.jpg" alt="first slide">
+<p class="my-2 text-center text-white">
+  Copyright ©<span>2020</span> Louis Diaz - All Rights Reserved.
+</p>
+
+
+<!-- <div class="container">
+    <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators" >
+    <ng-template ngbSlide>
+      <div class="carousel-block">
+        <img src="assets/images/wclothing.jpg" alt="first slide">
+      </div>
+      <div class="carousel-caption">
+        <p class="lead p-1" style="font-size: 3vw">New styles hitting our shelves every week, there's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.</p>
+        <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadFemaleBrowse()">Shop women</button>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="assets/images/mclothing.jpg" alt="second slide">
+      </div>
+      <div class="carousel-caption">
+        <p class="lead p-1" style="font-size: 3vw">Find Stylish and Classy Clothing For Men. Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.</p>
+        <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadMaleBrowse()">Shop men</button>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="assets/images/kclothing.jpg" alt="third slide">
+      </div>
+      <div class="carousel-caption">
+        <p class="lead p-1" style="font-size: 3vw">Designer New in of Clothing & Accessories for kids. Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.</p>
+        <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadChildrenBrowse()">Shop children</button>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div> -->
+
+<!-- <div class="flex-container">
+    <div class="row justify-content-center align-items-center text-center no-gutters" style="background-color: #d9d7cf">
+
+      <div class="col-md-6 ">
+          <img src="assets/images/mclothing.jpg" class="img-fluid"/>
+      </div>
+      <div class="col-md-6 order-1">
+        <p class="lead p-1" style="font-size: 3vw">Find Stylish and Classy Clothing For Men. Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.</p>
+        <button type="button" class="btn btn-md mb-2" style="background-color: #232323; color: #d9d7cf; border-radius: 0;" (click)="onLoadMaleBrowse()">Shop men</button>
+      </div>
     </div>
-    <div class="carousel-caption">
-      <p class="lead p-1">New styles hitting our shelves every week, there's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.</p>
-      <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadFemaleBrowse()">Shop women</button>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="assets/images/mclothing.jpg" alt="second slide">
-    </div>
-    <div class="carousel-caption">
-      <p class="lead p-1">Find Stylish and Classy Clothing For Men. Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.</p>
-      <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadMaleBrowse()">Shop men</button>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="assets/images/kclothing.jpg" alt="third slide">
-    </div>
-    <div class="carousel-caption">
-      <p class="lead p-1">Designer New in of Clothing & Accessories for kids. Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.</p>
-      <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadChildrenBrowse()">Shop children</button>
-    </div>
-  </ng-template>
-</ngb-carousel>
 </div>
+<div class="flex-container">
+    <div class="row justify-content-center align-items-center text-center no-gutters" style="background-color: #232323">
+      <div class="col-md-6 order-md-2">
+          <img src="assets/images/wclothing.jpg" class="img-fluid"/>
+      </div>
+      <div class="col-md-6 order-md-1">
+        <p class="lead p-1 text-light" style="font-size: 3vw">New styles hitting our shelves every week, there's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.</p>
+        <button type="button" class="btn btn-md mb-2" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadFemaleBrowse()">Shop women</button>
+      </div>
+    </div>
+</div>
+<div class="flex-container">
+    <div class="row justify-content-center align-items-center text-center no-gutters" style="background-color: #d9d7cf">
+      <div class="col-md-6 ">
+          <img src="assets/images/kclothing.jpg" class="img-fluid"/>
+      </div>
+      <div class="col-md-6 order-1" style="border-radius: 0px 50% 0px 0px;">
+        <p class="lead p-1" style="font-size: 3vw">Designer New in of Clothing & Accessories for kids. Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.</p>
+        <button type="button" class="btn btn-md mb-2" style="background-color: #232323; color: #d9d7cf; border-radius: 0;" (click)="onLoadChildrenBrowse()">Shop Children</button>
+      </div>
+    </div>
+</div> -->

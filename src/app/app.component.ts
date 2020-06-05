@@ -12,7 +12,7 @@ import { fromLeftEasing } from "ngx-router-animations";
   styleUrls: ['./app.component.css'],
   animations: [
     trigger('fromLeftEasing', [transition('* => *', useAnimation(fromLeftEasing, {
-      params: { enterTiming: '1', leaveTiming: '0', enterDelay: '0', leaveDelay: '0' }
+      params: { enterTiming: '2', leaveTiming: '2', enterDelay: '0', leaveDelay: '0' }
     }
     ))])
   ]
@@ -26,10 +26,6 @@ export class AppComponent implements OnInit {
 
     this.store.dispatch(new AuthActions.AutoLogin());
   }
-
-  // prepareRoute(outlet: RouterOutlet) {
-  //   return outlet && outlet.activatedRouteData;
-  // }
 
   getState(outlet) {
     return outlet.activatedRouteData.state;

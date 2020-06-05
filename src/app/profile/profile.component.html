@@ -2,133 +2,140 @@
 <div *ngIf="isLoading" style="text-align: center">
   <app-loading-spinner></app-loading-spinner>
 </div>
-<div *ngIf="!needRegister" class="container shadow-sm" style="background-color: #d9d7cf">
-  <h2 class="mb-1 text-center p-1 text-light" style="background-color: #232323">Member Profile</h2>
-  <h2 class="mb-3 mt-3 text-center lead"><b>Email:</b> {{ userRegEmail }}</h2>
-  <div class="container text-center mb-2">
-    <button type="button" class="btn btn-md text-center" (click)="showDisplayOrders()" style="background-color: #232323; color: white; border-radius: 0;">{{ pastOrder }}</button>
+<div class="mainblock">
+  <div *ngIf="!needRegister" class="profileblock shadow">
+    <h2 class="display-4 text-dark text-center px-2 mt-2">MEMBER PROFILE</h2>
+      <h2 class="mb-3 mt-3 text-center lead"><b>First Name:</b> {{ model.firstname }}</h2>
+      <h2 class="mb-3 mt-3 text-center lead"><b>Last Name:</b> {{ model.lastname }}</h2>
+      <h2 class="mb-3 mt-3 text-center lead"><b>Address:</b> {{ model.addressstreet }}</h2>
+      <h2 class="mb-3 mt-3 text-center lead"><b>City:</b> {{ model.city }}</h2>
+      <h2 class="mb-3 mt-3 text-center lead"><b>Strate:</b> {{ model.state }}</h2>
+      <h2 class="mb-3 mt-3 text-center lead"><b>Zipcode:</b> {{ model.zipcode }}</h2>
+      <h2 class="mb-3 mt-3 text-center lead"><b>Country:</b> {{ model.country }}</h2>
+      <h2 class="mb-3 mt-3 text-center lead"><b>Phone:</b> {{ model.phone }}</h2>
+    <div class="container text-center my-2">
+      <button type="button" class="btn btn-lg text-center" (click)="showUpdateInfo()" style="background-color: #232323; color: white; border-radius: 0;">{{ updateButton }}</button>
+    </div>
+      <hr />
+    <div *ngIf="updateInfo">
+      <form (ngSubmit)="onUpdate()" #memberModel="ngForm">
+        <div class="form-row lead text-center">
+          <div class="form-group col-md-6">
+            <label for="firstname"><b>First name</b></label>
+            <input type="text" class="form-control shadow-sm" id="firstname" style="text-align: center" placeholder={{model.firstname}} [(ngModel)]="model.firstname" name="firstname" required>
+          </div>
+          <div class="form-group col-md-6 text-center">
+            <label for="lastname"><b>Last name</b></label>
+            <input type="text" class="form-control shadow-sm" style="text-align: center" id="lastname" placeholder={{model.lastname}} [(ngModel)]="model.lastname" name="lastname" required>
+          </div>
+        </div>
+        <div class="form-group lead text-center">
+          <label for="addressstreet"><b>Address</b></label>
+          <input type="text" class="form-control shadow-sm" style="text-align: center" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet" required>
+        </div>
+
+        <div class="form-row lead text-center">
+          <div class="form-group col-md-6">
+            <label for="city"><b>City</b></label>
+            <input type="text" class="form-control shadow-sm" style="text-align: center" id="city" placeholder={{model.city}} [(ngModel)]="model.city" name="city" required>
+          </div>
+          <div class="form-group col-md-4 lead text-center">
+            <label for="state"><b>State</b></label>
+            <select id="state" class="form-control shadow-sm" style="text-align: center" [(ngModel)]="model.state" name="state" required>
+              <option selected>Choose...</option>
+              <option *ngFor="let state of states">{{state}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2 lead text-center">
+            <label for="zipcode"><b>Zip</b></label>
+            <input type="text" class="form-control shadow-sm" style="text-align: center" id="zipcode" placeholder={{model.zipcode}} [(ngModel)]="model.zipcode" name="zipcode" required>
+          </div>
+        </div>
+        <div class="form-row lead text-center justify-content-center">
+          <div class="form-group col-md-4 lead">
+            <label for="country"><b>Country</b></label>
+            <select id="country" class="form-control shadow-sm" style="text-align: center" [(ngModel)]="model.country" name="country" required>
+              <option selected>{{model.country}}</option>
+              <option *ngFor="let country of countryList">{{country}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4 lead text-center">
+            <label for="phone"><b>Phone</b></label>
+            <input type="text" class="form-control shadow-sm" style="text-align: center" id="phone" placeholder={{model.phone}} [(ngModel)]="model.phone" name="phone" appPhoneMaskDirective required>
+          </div>
+        </div>
+        <div class="form-row lead justify-content-center">
+          <button type="submit" class="btn btn-lg" style="background-color: #232323; color: white; border-radius: 0;" [disabled]="!memberModel.form.valid">Update</button>
+        </div>
+      </form>
+    </div>
+      <div class="container text-center my-2">
+        <button type="button" class="btn btn-lg text-center" (click)="showDisplayOrders()" style="background-color: #232323; color: white; border-radius: 0;">{{ pastOrder }}</button>
+      </div>
+
+      <div *ngIf="sd" class="container">
+        <h5 *ngIf="noPastOrders" class="text-center p-2">No past orders found</h5>
+        <ul class="list-group text-center b-1" *ngFor="let order of orders">
+          <li class="list-group-item mb-2 mt-2"><b>Order Id-</b>{{ order.orderid }}, <br /> <b>Payment Method-</b>{{ order.paymethod }}, <b>Purchase Date-</b>{{ order.orderdate }}, <b>Total-</b>{{ order.totalsale }},
+            <b>Purchases-</b>{{ order.products.length }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!--Register-->
+    <div *ngIf="needRegister" class="profileblock shadow" style="background-color: #d9d7cf">
+      <h2 class="display-4 text-light text-center px-2 mt-2">COMPLETE REGISTRATION</h2>
+      <h2 class="mb-3 mt-3 text-center lead"><b>Email:</b> {{ userRegEmail }}</h2>
+      <form (ngSubmit)="onRegister()" #memberModel="ngForm">
+        <div class="form-row lead">
+          <div class="form-group col-md-6 text-center">
+            <label for="firstname"><b>First name</b></label>
+            <input type="text" class="form-control shadow-sm" style="text-align: center" id="firstname" placeholder={{model.firstname}} [(ngModel)]="model.firstname" name="firstname" required>
+          </div>
+          <div class="form-group col-md-6 text-center">
+            <label for="lastname"><b>Last name</b></label>
+            <input type="text" class="form-control shadow-sm" style="text-align: center" id="lastname" placeholder={{model.lastname}} [(ngModel)]="model.lastname" name="lastname" required>
+          </div>
+        </div>
+        <div class="form-group lead text-center">
+          <label for="addressstreet"><b>Address</b></label>
+          <input type="text" class="form-control shadow-sm" style="text-align: center" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet" required>
+        </div>
+
+        <div class="form-row lead text-center">
+          <div class="form-group col-md-6">
+            <label for="city"><b>City</b></label>
+            <input type="text" class="form-control shadow-sm" style="text-align: center" id="city" placeholder={{model.city}} [(ngModel)]="model.city" name="city" required>
+          </div>
+          <div class="form-group col-md-4 lead text-center">
+            <label for="state"><b>State</b></label>
+            <select id="state" class="form-control shadow-sm" style="text-align: center" [(ngModel)]="model.state" name="state" required>
+              <option selected>Choose...</option>
+              <option *ngFor="let state of states">{{state}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2 lead text-center">
+            <label for="zipcode"><b>Zip</b></label>
+            <input type="text" class="form-control shadow-sm" style="text-align: center" id="zipcode" placeholder={{model.zipcode}} [(ngModel)]="model.zipcode" name="zipcode" required>
+          </div>
+        </div>
+        <div class="form-row lead text-center justify-content-center">
+          <div class="form-group col-md-4 lead">
+            <label for="country"><b>Country</b></label>
+            <select id="country" class="form-control shadow-sm" style="text-align: center" [(ngModel)]="model.country" name="country" required>
+              <option selected>{{model.country}}</option>
+              <option *ngFor="let country of countryList">{{country}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4 lead text-center">
+            <label for="phone"><b>Phone</b></label>
+            <input type="text" class="form-control shadow-sm" style="text-align: center" id="phone" placeholder={{model.phone}} [(ngModel)]="model.phone" name="phone" style="display: inline-block; float: none; margin: 0 auto" appPhoneMaskDirective
+              required>
+          </div>
+        </div>
+        <div class="form-row lead justify-content-center">
+          <button type="submit" class="btn btn-lg" style="background-color: #232323; color: white; border-radius: 0;" [disabled]="!memberModel.form.valid">Register</button>
+        </div>
+      </form>
+    </div>
   </div>
-
-  <div *ngIf="sd" class="container border rounded">
-    <h5 *ngIf="noPastOrders" class="text-center p-2">No past orders found</h5>
-    <ul class="list-group text-center b-1" *ngFor="let order of orders">
-      <li class="list-group-item mb-2 mt-2"><b>Order Id-</b>{{ order.orderid }}, <br /> <b>Payment Method-</b>{{ order.paymethod }}, <b>Purchase Date-</b>{{ order.orderdate }}, <b>Total-</b>{{ order.totalsale }}, <b>Purchases-</b>{{ order.products.length }}</li>
-    </ul>
-  </div>
-  <hr />
-  <form (ngSubmit)="onUpdate()" #memberModel="ngForm">
-    <div class="form-row lead text-center">
-      <div class="form-group col-md-6">
-        <label for="firstname"><b>First name</b></label>
-        <input type="text" class="form-control shadow-sm" id="firstname" style="text-align: center" placeholder={{model.firstname}} [(ngModel)]="model.firstname" name="firstname" required>
-      </div>
-      <div class="form-group col-md-6 text-center">
-        <label for="lastname"><b>Last name</b></label>
-        <input type="text" class="form-control shadow-sm" style="text-align: center" id="lastname" placeholder={{model.lastname}} [(ngModel)]="model.lastname" name="lastname" required>
-      </div>
-    </div>
-    <div class="form-group lead text-center">
-      <label for="addressstreet"><b>Address</b></label>
-      <input type="text" class="form-control shadow-sm" style="text-align: center" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet" required>
-    </div>
-
-    <div class="form-row lead text-center">
-      <div class="form-group col-md-6">
-        <label for="city"><b>City</b></label>
-        <input type="text" class="form-control shadow-sm" style="text-align: center" id="city" placeholder={{model.city}} [(ngModel)]="model.city" name="city" required>
-      </div>
-      <div class="form-group col-md-4 lead text-center">
-        <label for="state"><b>State</b></label>
-        <select id="state" class="form-control shadow-sm" style="text-align: center" [(ngModel)]="model.state" name="state" required>
-          <option selected>Choose...</option>
-          <option *ngFor="let state of states">{{state}}</option>
-        </select>
-      </div>
-      <div class="form-group col-md-2 lead text-center">
-        <label for="zipcode"><b>Zip</b></label>
-        <input type="text" class="form-control shadow-sm" style="text-align: center" id="zipcode" placeholder={{model.zipcode}} [(ngModel)]="model.zipcode" name="zipcode" required>
-      </div>
-    </div>
-    <div class="form-row lead text-center">
-      <div class="form-group col-md-4 lead">
-        <label for="country"><b>Country</b></label>
-        <select id="country" class="form-control shadow-sm" style="text-align: center" [(ngModel)]="model.country" name="country" required>
-          <option selected>{{model.country}}</option>
-          <option *ngFor="let country of countryList">{{country}}</option>
-        </select>
-      </div>
-      <div class="form-group col-md-4 lead text-center">
-        <label for="phone"><b>Phone</b></label>
-        <input type="text" class="form-control shadow-sm" style="text-align: center" id="phone"  placeholder={{model.phone}} [(ngModel)]="model.phone" name="phone" appPhoneMaskDirective required>
-      </div>
-    </div>
-    <div class="form-row lead justify-content-center">
-      <button type="submit" class="btn btn-lg" style="background-color: #232323; color: white; border-radius: 0;" [disabled]="!memberModel.form.valid">Update</button>
-    </div>
-
-    <span *ngIf="">Test</span>
-
-  </form>
-  <br />
-</div>
-
-<!--Register-->
-<div *ngIf="needRegister" class="container shadow-sm" style="background-color: #d9d7cf">
-  <h2 class="mb-1 text-center p-1 text-light" style="background-color: #232323">Complete Registration</h2>
-  <h2 class="mb-3 mt-3 text-center lead"><b>Email:</b> {{ userRegEmail }}</h2>
-  <form (ngSubmit)="onRegister()" #memberModel="ngForm">
-    <div class="form-row lead">
-      <div class="form-group col-md-6 text-center">
-        <label for="firstname"><b>First name</b></label>
-        <input type="text" class="form-control shadow-sm" style="text-align: center" id="firstname" placeholder={{model.firstname}} [(ngModel)]="model.firstname" name="firstname" required>
-      </div>
-      <div class="form-group col-md-6 text-center">
-        <label for="lastname"><b>Last name</b></label>
-        <input type="text" class="form-control shadow-sm" style="text-align: center" id="lastname" placeholder={{model.lastname}} [(ngModel)]="model.lastname" name="lastname" required>
-      </div>
-    </div>
-    <div class="form-group lead text-center">
-      <label for="addressstreet"><b>Address</b></label>
-      <input type="text" class="form-control shadow-sm" style="text-align: center" id="addressstreet" placeholder={{model.addressstreet}} [(ngModel)]="model.addressstreet" name="addressstreet" required>
-    </div>
-
-    <div class="form-row lead text-center">
-      <div class="form-group col-md-6">
-        <label for="city"><b>City</b></label>
-        <input type="text" class="form-control shadow-sm" style="text-align: center" id="city" placeholder={{model.city}} [(ngModel)]="model.city" name="city" required>
-      </div>
-      <div class="form-group col-md-4 lead text-center">
-        <label for="state"><b>State</b></label>
-        <select id="state" class="form-control shadow-sm" style="text-align: center" [(ngModel)]="model.state" name="state" required>
-          <option selected>Choose...</option>
-          <option *ngFor="let state of states">{{state}}</option>
-        </select>
-      </div>
-      <div class="form-group col-md-2 lead text-center">
-        <label for="zipcode"><b>Zip</b></label>
-        <input type="text" class="form-control shadow-sm" style="text-align: center" id="zipcode" placeholder={{model.zipcode}} [(ngModel)]="model.zipcode" name="zipcode" required>
-      </div>
-    </div>
-    <div class="form-row lead text-center">
-      <div class="form-group col-md-4 lead">
-        <label for="country"><b>Country</b></label>
-        <select id="country" class="form-control shadow-sm" style="text-align: center" [(ngModel)]="model.country" name="country" required>
-          <option selected>{{model.country}}</option>
-          <option *ngFor="let country of countryList">{{country}}</option>
-        </select>
-      </div>
-      <div class="form-group col-md-4 lead text-center">
-        <label for="phone"><b>Phone</b></label>
-        <input type="text" class="form-control shadow-sm" style="text-align: center" id="phone" placeholder={{model.phone}} [(ngModel)]="model.phone" name="phone" style="display: inline-block; float: none; margin: 0 auto" appPhoneMaskDirective required>
-      </div>
-    </div>
-    <div class="form-row lead justify-content-center">
-      <button type="submit" class="btn btn-lg" style="background-color: #232323; color: white; border-radius: 0;" [disabled]="!memberModel.form.valid">Register</button>
-    </div>
-
-    <span *ngIf="">Test</span>
-
-  </form>
-  <br />
-  </div>
-<br />

@@ -11,7 +11,7 @@ import  { fromBottomEasing }  from  "ngx-router-animations";
   styleUrls: ['./browse-accessory.component.css'],
   animations: [
    trigger('fromBottomEasing', [ transition('* => *', useAnimation(fromBottomEasing,{
-   	params: {enterTiming: '1', leaveTiming: '0', enterDelay: '0', leaveDelay: '0'}
+   	params: {enterTiming: '2', leaveTiming: '0', enterDelay: '0', leaveDelay: '0'}
    	}
    ))])
 ]
@@ -22,6 +22,7 @@ export class BrowseAccessoryComponent implements OnInit {
   ShowParentComponent: boolean;
   length = 100;
   currentProduct: Product;
+  isLoading = true;
   page: number = 1;
   constructor(private productService: ProductService, private router: Router) { }
 
@@ -31,6 +32,7 @@ export class BrowseAccessoryComponent implements OnInit {
     this.productService.getProductsByCategory('Accessory').subscribe(res => {
       this.products = res;
       this.length = res.length;
+      this.isLoading = false;
     });
   }
 

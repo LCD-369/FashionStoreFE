@@ -9,8 +9,8 @@ import { Coupon } from '../models/Coupon';
   providedIn: 'root'
 })
 export class CouponService {
-  // getUrl = 'http://localhost:3000/api/coupon/';
-  getUrl = 'http://www.fashionrusbackend.com:3000/api/coupon/';
+  getUrl = 'http://localhost:3000/api/coupon/';
+  // getUrl = 'http://www.fashionrusbackend.com:3000/api/coupon/';
   constructor(private http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse) {

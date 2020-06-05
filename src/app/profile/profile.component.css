@@ -1,5 +1,27 @@
 :host {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+.mainblock {
+  border: none !important;
   display: block;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/lights3.jpg");
   width: 100vw;
   height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.profileblock {
+  position: fixed;
+  display: block;
+  background-color: #d9d7cf;
+  left: 10vw;
+  right: 10vw;
+  top: 10vh;
+  padding: 5px;
 }

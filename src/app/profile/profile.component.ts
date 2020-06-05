@@ -29,6 +29,8 @@ export class ProfileComponent implements OnInit {
   isLoading: boolean;
   pastOrder: string;
   sd = false;
+  updateInfo = false;
+  updateButton: string;
   noPastOrders = false;
 
   constructor(private memberService: MemberService,
@@ -37,6 +39,7 @@ export class ProfileComponent implements OnInit {
     private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
+    this.updateButton = "Update Member Info";
     this.pastOrder = "Display Orders";
     this.model = new Member(
       '', 'MEMBER', 'johndoe@email.com',
@@ -105,6 +108,16 @@ export class ProfileComponent implements OnInit {
     } else if (this.sd) {
       this.pastOrder = "Display Orders";
       this.sd = false;
+    }
+  }
+
+  showUpdateInfo() {
+    if(!this.updateInfo) {
+      this.updateButton = "Collapse Update Form";
+      this.updateInfo = true;
+    } else if (this.updateInfo) {
+      this.updateButton = "Update Member Info";
+      this.updateInfo = false;
     }
   }
 

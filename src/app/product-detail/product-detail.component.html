@@ -1,19 +1,21 @@
 <ng-template appPlaceholder></ng-template>
-<div class="container" style="background-color: #d9d7cf">
-
-  <div class="row align-items-center p-2">
-    <div class="col text-center">
-      <img width="300" height="auto" src={{currentProduct.IMAGE}} alt="Photo" class="shadow-sm">
+<div class="mainblock">
+  <div class="container">
+      <div class="d-block">
+        <h2 class="display-4 text-white text-center" >Product Description</h2>
+      </div>
+    <div class="row align-items-center">
+      <div class="col text-center">
+        <img width="300" height="auto" src={{currentProduct.IMAGE}} alt="Photo" class="shadow">
+      </div>
+    </div>
+    <div class="row justify-content-center pb-3">
+      <div class="col-md-7 text-center p-2 shadow" style="background-color: #232323">
+        <h2 class="text-light">{{currentProduct.CATEGORY}} {{currentProduct.GENDER}} {{currentProduct.COLOR}} {{currentProduct.TYPE}}. <span class="text-muted">${{currentProduct.PRICE}}</span></h2>
+        <p class="lead text-light">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <button type="button" class="btn btn-block p-2" style="background-color: #d9d7cf; color: black; border-radius: 0;" (click)="addProductToCart()">Add to Cart</button>
+        <button type="button" class="btn btn-block p-2" style="background-color: #d9d7cf; color: black; border-radius: 0;" (click)="onLoadBrowse()">Back</button>
+      </div>
     </div>
   </div>
-  <div class="row align-items-center p-2">
-    <div class="col-auto text-center" style="background-color: #232323">
-      <h1 class="text-light"><i>Product Description</i></h1>
-      <h2 class="text-light">{{currentProduct.CATEGORY}} {{currentProduct.GENDER}} {{currentProduct.COLOR}} {{currentProduct.TYPE}}. <span class="text-muted">${{currentProduct.PRICE}}</span></h2>
-      <p class="lead text-light">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      <button type="button" class="btn btn-lg p-2 mx-auto my-2" style="background-color: #d9d7cf; color: black; border-radius: 0;" (click)="addProductToCart()">Add to Cart</button>
-      |
-      <button type="button" class="btn btn-lg p-2" style="background-color: #d9d7cf; color: black; border-radius: 0;" (click)="onLoadBrowse()">Back</button>
-  </div>
-</div>
 </div>

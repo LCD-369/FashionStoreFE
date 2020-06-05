@@ -1,24 +1,31 @@
 <ng-template appPlaceholder></ng-template>
-<div class="container" *ngIf="isLoading" style="text-align: center">
+<div *ngIf="isLoading">
   <app-loading-spinner></app-loading-spinner>
 </div>
-<div [hidden]="isLoading" class="authcontainer container">
+<div [hidden]="isLoading" class="authcontainer">
   <br />
   <div class="container p-3">
-
     <div class="row justify-content-center text-center">
-      <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-dark rounded text-center bgImage">
+      <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 text-dark text-center bgImage shadow">
         <h5 class="mt-2">Log in to your account!</h5>
         <fa-icon [icon]="faLock" size="2x"></fa-icon>
         <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
           <div class="form-group">
-            <label *ngIf="isLoginMode" for="email"><h3 style="font-weight: 600">Email</h3></label>
-            <label *ngIf="!isLoginMode" for="email"><h3 style="font-weight: 600">Enter Registration Email</h3></label>
+            <label *ngIf="isLoginMode" for="email">
+              <h3 style="font-weight: 600">Email</h3>
+            </label>
+            <label *ngIf="!isLoginMode" for="email">
+              <h3 style="font-weight: 600">Enter Registration Email</h3>
+            </label>
             <input type="email" id="email" class="form-control text-center" ngModel name="email" placeholder="name@example.com" required email />
           </div>
           <div class="form-group">
-            <label  *ngIf="isLoginMode" for="password"><h3 style="font-weight: 600">Password</h3></label>
-            <label  *ngIf="!isLoginMode" for="password"><h3 style="font-weight: 600">Register Account Password</h3></label>
+            <label *ngIf="isLoginMode" for="password">
+              <h3 style="font-weight: 600">Password</h3>
+            </label>
+            <label *ngIf="!isLoginMode" for="password">
+              <h3 style="font-weight: 600">Register Account Password</h3>
+            </label>
             <input type="password" id="password" class="form-control text-center" ngModel name="password" placeholder="password" required minlength="6" />
           </div>
           <div>
@@ -27,10 +34,7 @@
           </div>
         </form>
         <a href="#" class="btn text-dark mb-3" role="button">or Forgot Password?</a>
-
       </div>
     </div>
   </div>
-
 </div>
-<app-footer [hidden]="isLoading"></app-footer>

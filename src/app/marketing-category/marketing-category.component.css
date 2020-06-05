@@ -1,66 +1,43 @@
-/*
-@media screen and (max-width: 300px) {
-  .carousel-caption {
-      bottom: 0;
-      padding: 5px;
-      z-index: 10;
-      color: #fff;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.6);
-  }
-} */
-.carousel-block {
-  padding: 0 !important;
-}
-
-ngb-carousel {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-ngb-carousel img {
-  width: 100%;
-  outline: none;
-}
-
-ngb-carousel {
-  width: inherit;
-  height: inherit;
-}
-
-.carousel-inner {
-  overflow: visible;
-}
-
-.carousel-item {
-  display: flex !important;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 1.2s ease-in-out, visibility 1.2s;
-  z-index: -1;
-}
-
-.carousel-item.active {
-  opacity: 1;
-  visibility: visible;
-  z-index: 10;
-}
-
 .carousel-caption {
-  position: absolute;
-  right: 10% !important;
-  bottom: 20px;
-  left: 10% !important;
-  z-index: 10;
-  padding-top: 0 !important;
-  padding-bottom: 5px !important;
-  margin-top: auto !important;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    right: 15%;
+    bottom: 35%;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
 }
+
+.flex-container {
+  display: block;
+}
+
+.flex-container1 img {
+  border-radius: 100px 100px 100px 100px;
+}
+
+.flex-container2 img {
+  border-radius: 100px 100px 100px 100px;
+}
+
+.flex-container3 img {
+  border-radius: 100px 100px 100px 100px;
+}
+
+.marketingblock {
+  border: none !important;
+  display: block;
+  background: url("/assets/images/FRUbg1.svg") repeat center;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+}
+
 
 .bg-cover1 {
+  display: block;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     url("/assets/images/wclothing.jpg");
   background-size: cover;
@@ -70,6 +47,7 @@ ngb-carousel {
 }
 
 .bg-cover2 {
+  display: block;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     url("/assets/images/mclothing.jpg");
   background-size: cover;
