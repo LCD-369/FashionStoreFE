@@ -1,5 +1,5 @@
 :host {
-  width: 100%;
+  width: 100vw;
   margin-right: auto;
   margin-left: auto;
   position: relative;
@@ -17,11 +17,11 @@
 }
 
 .profileblock {
-  position: fixed;
+  position: relative;
   display: block;
   background-color: #d9d7cf;
-  left: 10vw;
-  right: 10vw;
   top: 10vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
   padding: 5px;
 }

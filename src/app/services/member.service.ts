@@ -9,12 +9,12 @@ import { Member } from '../models/Member';
   providedIn: 'root'
 })
 export class MemberService {
-  getUrl = 'http://localhost:3000/api/member/';
-  postUrl = 'http:/localhost:3000/api/member';
-  putUrl = 'http://localhost:3000/api/member/update';
-  // getUrl = 'http://www.fashionrusbackend.com:3000/api/member/';
-  // postUrl = 'http://www.fashionrusbackend.com:3000/api/member';
-  // putUrl = 'http://www.fashionrusbackend.com:3000/api/member/update';
+  // getUrl = 'http://localhost:3000/api/member/';
+  // postUrl = 'http:/localhost:3000/api/member';
+  // putUrl = 'http://localhost:3000/api/member/update';
+  getUrl = 'http://www.fashionrusbackend.com:3000/api/member/';
+  postUrl = 'http://www.fashionrusbackend.com:3000/api/member';
+  putUrl = 'http://www.fashionrusbackend.com:3000/api/member/update';
   constructor(private http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse) {

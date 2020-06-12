@@ -10,8 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CarouselModule } from 'angular-bootstrap-md';
-
+import { CarouselModule, ButtonsModule, WavesModule, CardsModule } from 'angular-bootstrap-md';
 import * as fromApp from './store/app.reducer';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,20 +26,13 @@ import { ProductService } from './services/product.service';
 import { OrderService } from './services/order.service';
 import { MemberService } from './services/member.service';
 import { CouponService } from './services/coupon.service';
-import { BrowseWomenComponent } from './browse-women/browse-women.component';
-import { BrowseMenComponent } from './browse-men/browse-men.component';
-import { BrowseChildrenComponent } from './browse-children/browse-children.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { AuthEffects } from './auth/store/auth.effects';
 import { AuthComponent } from './auth/auth.component';
-import { BrowseShoeComponent } from './browse-shoe/browse-shoe.component';
-import { BrowseAccessoryComponent } from './browse-accessory/browse-accessory.component';
 import { LogoComponent } from './logo/logo.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PaymeComponent } from './payme/payme.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
+import { BrowseProductComponent } from './browse-product/browse-product.component';
 
 @NgModule({
   declarations: [
@@ -53,15 +45,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
-    BrowseWomenComponent,
-    BrowseMenComponent,
-    BrowseChildrenComponent,
     ProductDetailComponent,
     AuthComponent,
-    BrowseShoeComponent,
-    BrowseAccessoryComponent,
     LogoComponent,
-    PaymeComponent
+    PaymeComponent,
+    BrowseProductComponent
   ],
   imports: [
     BrowserModule,
@@ -76,9 +64,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     CoreModule,
     NgxPaginationModule,
+    ButtonsModule, WavesModule, CardsModule,
     CarouselModule.forRoot(),
     FontAwesomeModule,
-    NgbModule
   ],
   providers: [OrderService, ProductService, MemberService, CouponService],
   bootstrap: [AppComponent]

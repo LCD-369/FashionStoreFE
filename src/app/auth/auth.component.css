@@ -1,3 +1,10 @@
+:host {
+  width: 100vw;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
 .form-control:focus {
   border-color: #d1c3b5;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(209, 195, 181, 1.0);
@@ -7,11 +14,11 @@
   display: block;
   width: 100vw;
   height: 100vh;
-  background-image: url("/assets/images/FRUbg1.svg");
+  /* background-image: url("/assets/images/FRUbg1.svg");
   background-size: cover;
   background-position: center center;
   background-repeat: repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; */
   border-radius: 0;
   padding: 50px;
 }
@@ -21,11 +28,4 @@
   background-position: center center;
   background-repeat: no-repeat;
   border-radius: 0;
-}
-
-:host {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  position: relative;
 }

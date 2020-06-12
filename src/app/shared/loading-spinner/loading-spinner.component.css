@@ -1,5 +1,5 @@
 :host {
-  width: 100%;
+  width: 100vw;
   margin-right: auto;
   margin-left: auto;
   position: relative;
@@ -8,11 +8,8 @@
 .backdrop {
   display: block;
   text-align: center;
-  background: url("/assets/images/FRUbg1.svg");
   width: 100vw;
   height: auto;
-  background-size: cover;
-  z-index: 1000;
 }
 
 .spinner {

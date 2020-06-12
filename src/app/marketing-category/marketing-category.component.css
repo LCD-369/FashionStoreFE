@@ -1,3 +1,12 @@
+.marketingblock {
+  border: none !important;
+  display: block;
+  background: url("/assets/images/FRUbg1.svg") repeat center;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+}
+
 .carousel-caption {
     position: absolute;
     right: 15%;
@@ -25,16 +34,6 @@
 .flex-container3 img {
   border-radius: 100px 100px 100px 100px;
 }
-
-.marketingblock {
-  border: none !important;
-  display: block;
-  background: url("/assets/images/FRUbg1.svg") repeat center;
-  width: 100%;
-  height: auto;
-  background-size: cover;
-}
-
 
 .bg-cover1 {
   display: block;

@@ -11,7 +11,7 @@ import { fromLeftEasing } from "ngx-router-animations";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    trigger('fromLeftEasing', [transition('* => *', useAnimation(fromLeftEasing, {
+    trigger('fromLeftEasing', [transition('* <=> *', useAnimation(fromLeftEasing, {
       params: { enterTiming: '2', leaveTiming: '2', enterDelay: '0', leaveDelay: '0' }
     }
     ))])
