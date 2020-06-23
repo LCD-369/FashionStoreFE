@@ -15,18 +15,18 @@ import { faLock } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent implements OnInit, OnDestroy {
-  isLoginMode = true;
-  isLoading: boolean;
-  error: string = null;
   @ViewChild(PlaceholderDirective, {static: false}) alertHost: PlaceholderDirective;
   private closeSub: Subscription;
   private storeSub: Subscription;
-
+  isLoginMode = true;
+  isLoading: boolean;
+  error: string = null;
   faLock = faLock;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private store: Store<fromApp.AppState>) {}
 
   ngOnInit() {
+
     this.isLoading = false;
     this.storeSub = this.store.select('auth').subscribe(authState => {
       this.isLoading = authState.loading;

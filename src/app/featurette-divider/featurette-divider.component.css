@@ -1,9 +1,4 @@
 
-.featurette-divider {
-  margin: 1rem 0; /* Space out the Bootstrap <hr> more */
-}
-
-/* Thin out the marketing headings */
 .featurette-heading {
   font-weight: 300;
   line-height: 1;
@@ -11,7 +6,6 @@
 }
 
 @media (min-width: 40em) {
-
   .featurette-heading {
     font-size: 50px;
   }
@@ -21,4 +15,79 @@
   .featurette-heading {
     margin-top: 7rem;
   }
+}
+
+.animate__animated.animate__fadeInLeft {
+  --animate-duration: 2s;
+  --animate-delay: 2s;
+}
+
+.animate__animated.animate__fadeInRight {
+  --animate-duration: 2s;
+  --animate-delay: 2s;
+}
+
+.imagebox {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  width: 100%;
+}
+
+.imagebox img {
+  position: relative;
+  max-width: 100%;
+  height: auto;
+}
+
+.imagebox2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  width: 100%;
+}
+
+.imagebox2 img {
+  position: relative;
+  max-width: 100%;
+  height: auto;
+}
+
+.featurettebox1 {
+  display: block;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vh;
+  -webkit-box-shadow: 0px 22px 2px -16px rgba(217, 215, 207, 1);
+  -moz-box-shadow: 0px 22px 2px -16px rgba(217, 215, 207, 1);
+  box-shadow: 0px 22px 2px -16px rgba(217, 215, 207, 1);
+}
+
+.featurettebox2 {
+  display: block;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vh;
+  -webkit-box-shadow: 0px 22px 2px -16px rgba(217, 215, 207, 1);
+  -moz-box-shadow: 0px 22px 2px -16px rgba(217, 215, 207, 1);
+  box-shadow: 0px 22px 2px -16px rgba(217, 215, 207, 1);
+}
+
+.row {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-bg {
+  background: #232323;
+  opacity: 100%;
+  clip-path: ellipse(100% 67% at 14% 66%);
+  z-index: 5;
+}
+
+.img-bg2 {
+  background: #232323;
+  opacity: 100%;
+  clip-path: ellipse(100% 67% at 85% 66%);
+  z-index: 5;
 }

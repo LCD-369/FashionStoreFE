@@ -90,20 +90,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnDestroy() {
     this.userSub.unsubscribe();
+    this.cartSub.unsubscribe();
   }
 
   private showAlert() {
-
-    const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
-      AlertComponent
-    );
+    const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
     const hostViewContainerRef = this.alertHost.viewContainerRef;
-    hostViewContainerRef.clear();
-
+      hostViewContainerRef.clear();
     const componentRef = hostViewContainerRef.createComponent(alertCmpFactory);
-
-    componentRef.instance.message = 'User successfully logged off.';
-
+      componentRef.instance.message = 'User successfully logged off.';
     this.closeSub = componentRef.instance.close.subscribe(() => {
       this.closeSub.unsubscribe();
       hostViewContainerRef.clear();

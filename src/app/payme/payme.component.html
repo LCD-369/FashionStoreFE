@@ -1,11 +1,8 @@
-<div class="container" *ngIf="isLoading" style="text-align: center">
+<div *ngIf="isLoading">
   <app-loading-spinner></app-loading-spinner>
 </div>
 
 <div *ngIf="!paidFor">
-
-
-
   <div [hidden]="isLoading" class="container text-center" style="background-color: #d9d7cf">
     <div class="text-center">
       <h2 class="display-4 text-dark">Order Description</h2>
@@ -69,12 +66,12 @@
         </div>
       </div>
     </form>
-  <br />
-</div>
+    <br />
+  </div>
 </div>
 <div *ngIf="paidFor" class="confirmationblock">
   <div class="container text-center p-2" style="background-color: #d9d7cf">
-      <h1 class="display-4 text-dark">ORDER CONFIRMATION</h1>
+    <h1 class="display-4 text-dark">ORDER CONFIRMATION</h1>
     <h5><b>Order Id: </b>{{ confirmation.orderid }}</h5>
     <h5><b>Payment Method: </b>{{ confirmation.paymethod }}</h5>
     <h5><b>Order Date: </b>{{ confirmation.orderdate }}</h5>

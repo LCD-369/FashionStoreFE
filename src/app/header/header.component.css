@@ -9,9 +9,10 @@
   background-color: #d9d7cf;
   color: #272727;
   box-shadow: none;
-  border-radius: 0;
+  border-radius: 2px;
   border: none;
   z-index: 10;
+  text-align: center;
 }
 
 .grow, .button:active  {
@@ -25,5 +26,6 @@
   box-shadow: none;
   text-decoration: none;
   border: none;
-  border-radius: 0;
+  border-radius: 2px;
+  text-align: center;
 }

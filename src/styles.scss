@@ -16,3 +16,10 @@ body {
 ::-webkit-scrollbar { /* WebKit */
     display: none;
 }
+
+.btn:focus {
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(35,35,35,0.5) !important;
+  -moz-box-shadow: 0px 3px 5px 0px rgba(35,35,35,0.5) !important;
+  box-shadow: 0px 3px 5px 0px rgba(35,35,35,0.5) !important;
+    outline:0px !important;
+}

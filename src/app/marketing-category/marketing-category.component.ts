@@ -10,10 +10,8 @@ import { Router } from '@angular/router';
 export class MarketingCategoryComponent implements OnInit {
   showNavigationArrows: boolean;
   showNavigationIndicators: boolean;
-
-  constructor(private router: Router) {
-
-   }
+  year: number = new Date().getFullYear();
+  constructor(private router: Router) {}
 
   ngOnInit() {
   }

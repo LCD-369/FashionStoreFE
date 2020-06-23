@@ -1,51 +1,23 @@
-<div class="mainblock" *ngIf="!isLoading" [@fromLeftEasing]="isLoading">
-  <div class="d-block" *ngIf="ShowParentComponent" style="margin: auto">
-    <!-- <div class="pageBox"> -->
-      <h2 class="display-4 pageHeader">{{pageHeader}}</h2>
-    <!-- </div> -->
-
-    <div class="row justify-content-center bg-white" style="width: 100vw">
-
-      <div class="col-auto p-2" style="--hue: 350" *ngFor="let product of products | paginate: { itemsPerPage: 3, currentPage: page, totalItems: length }">
-        <div class="flip-card-container">
-          <div class="flip-card">
-            <div class="card-front">
-              <figure>
-                <div class="img-bg"></div>
-                <img src="{{product.IMAGE}}" alt="Photo">
-              </figure>
-              <ul>
-                <li>{{product.GENDER}}</li>
-                <li>{{product.COLOR}}</li>
-                <li>{{product.TYPE}}</li>
-              </ul>
-            </div>
-            <div class="card-back">
-              <figure>
-                <div class="img-bg"></div>
-                <img src="{{product.IMAGE}}" alt="Photo">
-              </figure>
-              <button  (click)="onLoadDetails(product)">View Product</button>
-              <div class="design-container">
-                <span class="design design--1"></span>
-                <span class="design design--2"></span>
-                <span class="design design--3"></span>
-                <span class="design design--4"></span>
-                <span class="design design--5"></span>
-                <span class="design design--6"></span>
-                <span class="design design--7"></span>
-                <span class="design design--8"></span>
-              </div>
-            </div>
+<div class="mainblock" [@fromBottomEasing]="!isLoading">
+  <div *ngIf="ShowParentComponent">
+    <div class="sectionheader">
+      <h1>{{pageHeader}}</h1>
+    </div>
+    <div style="display: block; width: 90vw; min-height: 60vh; border-radius: 2px; background-color: white; margin-left: auto; margin-right: auto;">
+      <div class="row row-cols-3 justify-content-center" style="width: 90vw; margin-left: auto; margin-right: auto; background-color: white">
+        <div class="col-auto box" style="background: url({{product.IMAGE}}); background-repeat: no-repeat; background-size: contain; background-position: center center;" *ngFor="let product of products | paginate: { itemsPerPage: 6, currentPage: page, totalItems: length }" [hidden]="isLoading">
+          <div class="headerContainer">
+            <h1>{{product.GENDER}}<br />{{product.COLOR}} {{product.TYPE}}</h1>
+            <button type="button" class="btn" (click)="onLoadDetails(product)">View</button>
+          </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row justify-content-center pagClass">
-      <pagination-controls responsive="true" (pageChange)="page = $event" *ngIf="!isLoading"></pagination-controls>
+    <div class="pageClass pageBorder">
+      <pagination-controls responsive="true" (pageChange)="page = $event"></pagination-controls>
     </div>
   </div>
-  <div [@fromLeftEasing]="showChildComponent">
+  <div [@fromBottomEasing]="showChildComponent">
     <app-product-detail *ngIf="showChildComponent" [currentProduct]="currentProduct" (close)="onClose()"></app-product-detail>
   </div>
 </div>

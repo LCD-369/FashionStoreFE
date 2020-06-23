@@ -1,47 +1,54 @@
 <div class="marketingblock">
-    <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+  <div class="d-block" style="margin-left: auto; margin-right: auto; width: 80vw !important">
+    <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'" [isControls]="false">
+
       <mdb-carousel-item>
         <div class="view">
-          <img class="d-block" src="assets/images/mclothing.jpg" alt="First slide" style="width: 100vw">
+          <img class="d-block" src="assets/images/mclothing.jpg" alt="First slide" style="width: 80vw">
           <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
         </div>
-        <div class="carousel-caption">
+        <div class="carousel-caption animated fadeInLeft">
           <div class="animated fadeInDown delay-1s">
-            <p class="lead p-1" style="font-size: 3vw">Find Stylish and Classy Clothing For Men. Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.</p>
-            <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadMaleBrowse()">Shop men</button>
+            <p class="lead p-1" style="font-size: 3vw; line-height: 130%;"><span class="bigFont">Find Stylish and Classy Clothing For Men</span><br />Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.</p>
+            <a routerLink="/browse/men" href="#">Shop men</a>
           </div>
         </div>
       </mdb-carousel-item>
 
       <mdb-carousel-item>
         <div class="view">
-          <img class="d-block" src="assets/images/wclothing.jpg" alt="Second slide" style="width: 100vw">
+          <img class="d-block" src="assets/images/wclothing.jpg" alt="Second slide" style="width: 80vw">
           <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
         </div>
-        <div class="carousel-caption">
+        <div class="carousel-caption animated fadeInLeft">
           <div class="animated fadeInDown delay-1s">
-            <p class="lead p-1" style="font-size: 3vw">New styles hitting our shelves every week, there's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.</p>
-            <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadFemaleBrowse()">Shop women</button>
+            <p class="lead p-1" style="font-size: 3vw; line-height: 130%;"><span class="bigFont">New styles hitting our shelves every week</span><br />There's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.</p>
+            <a routerLink="/browse/women" href="#">Shop women</a>
           </div>
         </div>
       </mdb-carousel-item>
 
       <mdb-carousel-item>
         <div class="view">
-          <img class="d-block" src="assets/images/kclothing.jpg" alt="Third slide" style="width: 100vw">
+          <img class="d-block" src="assets/images/kclothing.jpg" alt="Third slide" style="width: 80vw">
           <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
         </div>
-        <div class="carousel-caption">
+        <div class="carousel-caption animated fadeInLeft">
           <div class="animated fadeInDown delay-1s">
-            <p class="lead p-1" style="font-size: 3vw">Designer New in of Clothing & Accessories for kids. Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.</p>
-            <button type="button" class="btn btn-md" style="background-color: #d9d7cf; color: #232323; border-radius: 0;" (click)="onLoadChildrenBrowse()">Shop children</button>
+            <p class="lead p-1" style="font-size: 3vw; line-height: 130%;"><span class="bigFont">Designer Clothing & Accessories for kids</span><br /> Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.</p>
+            <a routerLink="/browse/children" href="#">Shop children</a>
           </div>
       </div>
       </mdb-carousel-item>
 
     </mdb-carousel>
-  <app-featurette-divider></app-featurette-divider>
+  </div>
 </div>
-<p class="my-2 text-center text-white">
-  Copyright ©<span>2020</span> Louis Diaz - All Rights Reserved.
-</p>
+
+<app-featurette-divider></app-featurette-divider>
+<!-- <div class="fixed-bottom"> -->
+  <!-- <img src="assets/images/FRUlogo.png" alt="Photo" class="logo" style="width: 250px;"> -->
+  <p class="lead my-2 text-center text-white">
+    Copyright ©<span>{{year}}</span> Louis Diaz - All Rights Reserved.
+  </p>
+<!-- </div> -->

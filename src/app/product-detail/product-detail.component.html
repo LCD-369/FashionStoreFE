@@ -1,23 +1,23 @@
 <ng-template appPlaceholder></ng-template>
 <div class="mainblock">
-  <!-- <h2 class="display-4 text-light mt-2 mb-5 text-center">{{currentProduct.COLOR}} {{currentProduct.TYPE}}</h2> -->
-  <div class="row justify-content-center bg-white px-5 mt-5">
-    <div class="col-lg-3 col-md-5">
+  <div class="sectionheader"><h1>PRODUCT DETAILS</h1></div>
+  <div class="pageClass">
+  <div class="row justify-content-center">
+    <div class="col-lg col-xl-4 order-lg-1 align-self-center p-3">
       <mdb-card class="collection-card z-depth-1-half card">
         <div class="view zoom waves-light" mdbWavesEffect>
           <mdb-card-img src={{currentProduct.IMAGE}} alt="">
             <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/5.jpg" alt="">
           </mdb-card-img>
-          <div class="stripe dark">
-            <button type="button" class="btn text-light" (click)="addProductToCart()" style="background-color: none">Add to Cart <fa-icon [icon]="faAngleRight" size="1x"></fa-icon></button>
-          </div>
         </div>
       </mdb-card>
     </div>
-    <div class="col-lg-3 col-md-5 align-self-center text-center">
+    <div class="col-lg col-xl-4 order-lg-2 text-center align-self-center">
       <h2 class="text-dark">{{currentProduct.CATEGORY}} {{currentProduct.GENDER}} {{currentProduct.COLOR}} {{currentProduct.TYPE}}. <span class="text-muted">${{currentProduct.PRICE}}</span></h2>
       <p class="lead text-dark">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      <button type="button" class="btn btn-block p-2" style="background-color: #d9d7cf; color: black; border-radius: 0;" (click)="onLoadBrowse()">Back</button>
+      <button type="button" class="btn p-2 mb-3" (click)="addProductToCart()">Add to Cart</button>
+      <button type="button" class="btn p-2 mb-3" (click)="onLoadBrowse()">Back</button>
     </div>
+  </div>
   </div>
 </div>

@@ -1,28 +1,44 @@
 <ng-template appPlaceholder></ng-template>
-<div class="d-block" style="background-color: #232323; padding: 0">
-
-  <div class="d-block">
-    <div class="text-center">
-      <img width="250" height="auto" src="assets/images/FRUlogo.png" alt="Photo">
-    </div>
-  </div>
-
-  <div class="d-block text-center py-1 text-white" style="background-color: #232323">
-    <nav class="nav d-flex justify-content-center text-center text-white">
-      <button type="button" class="grow btn mx-2" (click)="onLoadHome()">HOME-PAGE</button>
-      <button type="button" class="grow btn mx-2" (click)="onLoadMaleBrowse()">MALE-ATTIRE</button>
-      <button type="button" class="grow btn mx-2" (click)="onLoadFemaleBrowse()">FEMALE-ATTIRE</button>
-      <button type="button" class="grow btn mx-2" (click)="onLoadChildrenBrowse()">CHILDREN-ATTIRE</button>
-      <button type="button" class="grow btn mx-2" (click)="onLoadShoesBrowse()">SHOES</button>
-      <button type="button" class="grow btn mx-2" (click)="onLoadAccessoryBrowse()">ACCESSORIES</button>
-      <button type="button" class="grow btn mx-2" (click)="onLoadLogin()" *ngIf="!isAuthenticated">LOGIN/REGISTER</button>
-      <button type="button" class="grow btn mx-2" [disabled]="!isAuthenticated" (click)="onLogout()">LOGOUT</button>
-      <button type="button" class="grow btn mx-2" (click)="onLoadCart()">
-        <fa-icon [icon]="faShoppingCart" size="1x"></fa-icon><span *ngIf="productsInCart">({{cartLength}})</span>
-      </button>
-      <button type="button" class="grow btn" (click)="onLoadProfile()">
-        <fa-icon [icon]="faUser" size="1x"></fa-icon>
-      </button>
-    </nav>
-  </div>
-</div>
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark" [containerInside]="false">
+  <mdb-navbar-brand><a routerLink="/home" class="navbar-brand" href="#"><img src="assets/images/FRUlogo.png" alt="Photo" style="width: 70px"></a></mdb-navbar-brand>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a routerLink="/home" class="nav-link waves-light" href="#" mdbWavesEffect>HOME-PAGE</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/browse/men" class="nav-link waves-light" href="#" mdbWavesEffect>MALE-ATTIRE</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/browse/women" class="nav-link waves-light" href="#" mdbWavesEffect>FEMALE-ATTIRE</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/browse/children" class="nav-link waves-light" href="#" mdbWavesEffect>CHILDREN-ATTIRE</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/browse/shoes" class="nav-link waves-light" href="#" mdbWavesEffect>SHOES</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/browse/accessory" class="nav-link waves-light" href="#" mdbWavesEffect>ACCESSORIES</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/auth" class="nav-link waves-light" *ngIf="!isAuthenticated">LOGIN/REGISTER</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <button type="button" class="grow btn mx-2" [disabled]="!isAuthenticated" (click)="onLogout()">LOGOUT</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="grow btn mx-2" (click)="onLoadCart()">
+          <fa-icon [icon]="faShoppingCart" size="1x"></fa-icon><span *ngIf="productsInCart">({{cartLength}})</span>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="grow btn" (click)="onLoadProfile()">
+          <fa-icon [icon]="faUser" size="1x"></fa-icon>
+        </button>
+      </li>
+    </ul>
+  </links>
+</mdb-navbar>

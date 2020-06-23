@@ -12,14 +12,14 @@ import { fromBottomEasing, fromLeftEasing, fromTopEasing } from "ngx-router-anim
   templateUrl: './browse-product.component.html',
   styleUrls: ['./browse-product.component.scss'],
   animations: [
-    trigger('fromBottomEasing', [transition('* <=> *', useAnimation(fromBottomEasing, {
-      params: { enterTiming: '2', leaveTiming: '1', enterDelay: '0', leaveDelay: '0' }
+    trigger('fromBottomEasing', [transition('* => *', useAnimation(fromBottomEasing, {
+      params: { enterTiming: '1', leaveTiming: '0', enterDelay: '0', leaveDelay: '0' }
     }))]),
-    trigger('fromTopEasing', [transition('* <=> *', useAnimation(fromTopEasing, {
-      params: { enterTiming: '2', leaveTiming: '1', enterDelay: '0', leaveDelay: '0' }
+    trigger('fromBottomEasing2', [transition('* <=> *', useAnimation(fromBottomEasing, {
+      params: { enterTiming: '1', leaveTiming: '0', enterDelay: '0', leaveDelay: '0' }
     }))]),
-    trigger('fromLeftEasing', [transition('* <=> *', useAnimation(fromLeftEasing, {
-      params: { enterTiming: '2', leaveTiming: '1', enterDelay: '0', leaveDelay: '0' }
+    trigger('fromLeftEasing', [transition('* => *', useAnimation(fromLeftEasing, {
+      params: { enterTiming: '1', leaveTiming: '0', enterDelay: '0', leaveDelay: '0' }
     }))])
   ]
 })
@@ -33,7 +33,7 @@ export class BrowseProductComponent implements OnInit {
   ShowParentComponent: boolean;
   length: number;
   currentProduct: Product;
-  isLoading = true;
+  isLoading: boolean;
   page: number = 1;
 
 
@@ -49,7 +49,7 @@ export class BrowseProductComponent implements OnInit {
     this.showChildComponent = false;
     this.ShowParentComponent = true;
 
-    if(this.gender == 'NA') {
+    if (this.gender == 'NA') {
       this.productService.getProductsByCategory(this.category).subscribe(res => {
         this.products = res;
         this.length = res.length;
@@ -62,10 +62,6 @@ export class BrowseProductComponent implements OnInit {
         this.isLoading = false;
       })
     }
-
-
-
-
   }
 
   onLoadDetails(product: Product) {

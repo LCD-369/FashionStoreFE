@@ -1,65 +1,56 @@
 .marketingblock {
   border: none !important;
   display: block;
-  background: url("/assets/images/FRUbg1.svg") repeat center;
   width: 100%;
   height: auto;
-  background-size: cover;
 }
 
 .carousel-caption {
-    position: absolute;
-    right: 15%;
-    bottom: 35%;
-    left: 15%;
-    z-index: 10;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: #fff;
-    text-align: center;
+  background-color: rgba(217, 215, 207, 0.3);
+  top: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: black;
+  text-align: center;
 }
 
-.flex-container {
+.logo {
   display: block;
-}
-
-.flex-container1 img {
-  border-radius: 100px 100px 100px 100px;
-}
-
-.flex-container2 img {
-  border-radius: 100px 100px 100px 100px;
-}
-
-.flex-container3 img {
-  border-radius: 100px 100px 100px 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .bg-cover1 {
   display: block;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("/assets/images/wclothing.jpg");
+  background-color: black;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  /* background-attachment: fixed;  */
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 2%;
+  width: 95vw;
+}
+
+a {
+  color: #d9d7cf;
+  font-size: 2vw;
 }
 
 .bg-cover2 {
   display: block;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("/assets/images/mclothing.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  /* background-attachment: fixed;  */
+  background-color: #d9d7cf;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95vw;
+  padding-top: 2%;
 }
 
-.bg-cover3 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("/assets/images/kclothing.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  /* background-attachment: fixed;  */
+.bigFont {
+  -webkit-text-stroke: 0.25px black;
+  -webkit-text-fill-color: #d9d7cf;
+  white-space: normal;
+  font-weight: 300;
+  font-size: 6vw;
 }

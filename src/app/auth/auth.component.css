@@ -6,26 +6,59 @@
 }
 
 .form-control:focus {
-  border-color: #d1c3b5;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(209, 195, 181, 1.0);
+  border-color: white;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.075);
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  color: white !important;
+}
+
+input {
+  background-color: rgba(0, 0, 0, 0.0) !important;
+  color: white !important;
+  border-color: white !important;
+  outline: white !important;
+}
+
+input:focus {
+  outline: white !important;
+  color: white !important;
+}
+
+::placeholder {
+  color: white !important;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: white !important;
 }
 
 .authcontainer {
   display: block;
-  width: 100vw;
+  width: 90vw;
   height: 100vh;
-  /* background-image: url("/assets/images/FRUbg1.svg");
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/assets/images/lights3.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: repeat;
-  background-attachment: fixed; */
-  border-radius: 0;
+  background-attachment: fixed;
   padding: 50px;
 }
 
 .bgImage {
-  background-color: #d9d7cf;
+  background-color: rgba(0, 0, 0, 0.3);
   background-position: center center;
   background-repeat: no-repeat;
-  border-radius: 0;
+  border-radius: 2px;
+  text-align: center;
+  color: white;
+  margin-top: 25vh;
+  padding-left: 8%;
+  padding-right: 8%;
 }
