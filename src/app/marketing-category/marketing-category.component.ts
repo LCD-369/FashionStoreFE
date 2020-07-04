@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-marketing-category',
@@ -11,6 +11,7 @@ export class MarketingCategoryComponent implements OnInit {
   showNavigationArrows: boolean;
   showNavigationIndicators: boolean;
   year: number = new Date().getFullYear();
+  faAngleDown = faAngleDown;
   constructor(private router: Router) {}
 
   ngOnInit() {
@@ -26,6 +27,10 @@ export class MarketingCategoryComponent implements OnInit {
 
   onLoadChildrenBrowse() {
     this.router.navigate(['browse/children']);
+  }
+
+  onLoadFeaturette() {
+    this.router.navigate(['featurette']);
   }
 
 }

@@ -70,14 +70,14 @@
   </div>
 </div>
 <div *ngIf="paidFor" class="confirmationblock">
-  <div class="container text-center p-2" style="background-color: #d9d7cf">
+  <div class="container text-center p-2">
     <h1 class="display-4 text-dark">ORDER CONFIRMATION</h1>
     <h5><b>Order Id: </b>{{ confirmation.orderid }}</h5>
     <h5><b>Payment Method: </b>{{ confirmation.paymethod }}</h5>
     <h5><b>Order Date: </b>{{ confirmation.orderdate }}</h5>
     <h5 *ngFor="let product of (items | async).cartItems; index as i"><b>Items Ordered: </b> {{product.GENDER}} {{product.CATEGORY}} {{product.COLOR}} {{product.TYPE}}</h5>
     <h5><b>Total Sale: </b>{{ confirmation.totalsale }}</h5>
-    <button type="button" class="btn btn-block p-1" (click)="onLoadHome()" style="background-color: #232323; color: white; border-radius: 0;">Home Page</button>
+    <button type="button" class="btn btn-md p-1" (click)="onLoadHome()" style="background-color: #232323; color: white; border-radius: 0;">Home Page</button>
   </div>
 </div>
 <div [hidden]="paidFor" class="container text-center mt-1">

@@ -3,7 +3,7 @@
   <app-loading-spinner></app-loading-spinner>
 </div>
 <div class="mainblock">
-  <div class="sectionheader"><h1>MEMBER PROFILE</h1></div>
+  <div class="sectionheader">MEMBER PROFILE</div>
   <div *ngIf="!needRegister" class="profileblock shadow">
       <h2 class="mb-3 mt-3 text-center lead"><b>First Name:</b> {{ model.firstname }}</h2>
       <h2 class="mb-3 mt-3 text-center lead"><b>Last Name:</b> {{ model.lastname }}</h2>
@@ -84,7 +84,7 @@
 
     <!--Register-->
     <div *ngIf="needRegister" class="profileblock shadow" style="background-color: #d9d7cf">
-      <h1 class="display-4 text-light text-center px-2 mt-2">COMPLETE REGISTRATION</h1>
+      <h1 class="text-center">COMPLETE REGISTRATION</h1>
       <h2 class="mb-3 mt-3 text-center lead"><b>Email:</b> {{ userRegEmail }}</h2>
       <form (ngSubmit)="onRegister()" #memberModel="ngForm">
         <div class="form-row lead">

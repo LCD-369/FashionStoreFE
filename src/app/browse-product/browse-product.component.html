@@ -1,9 +1,7 @@
 <div class="mainblock" [@fromBottomEasing]="!isLoading">
   <div *ngIf="ShowParentComponent">
-    <div class="sectionheader">
-      <h1>{{pageHeader}}</h1>
-    </div>
-    <div style="display: block; width: 90vw; min-height: 60vh; border-radius: 2px; background-color: white; margin-left: auto; margin-right: auto;">
+    <div class="sectionheader">{{pageHeader}}</div>
+    <div style="display: block; width: 100vw; min-height: 60vh; background-color: white;">
       <div class="row row-cols-3 justify-content-center" style="width: 90vw; margin-left: auto; margin-right: auto; background-color: white">
         <div class="col-auto box" style="background: url({{product.IMAGE}}); background-repeat: no-repeat; background-size: contain; background-position: center center;" *ngFor="let product of products | paginate: { itemsPerPage: 6, currentPage: page, totalItems: length }" [hidden]="isLoading">
           <div class="headerContainer">

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { FeaturetteDividerComponent } from './featurette-divider/featurette-divider.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CartComponent } from './cart/cart.component';
 import { PaymeComponent } from './payme/payme.component';
@@ -11,6 +12,7 @@ import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { state: 'home' } },
+  { path: 'featurette', component: FeaturetteDividerComponent, data: { state: 'featurette' } },
   { path: 'profile', canActivate: [AuthGuard], component: ProfileComponent, data: { state: 'profile' } },
   { path: 'auth', component: AuthComponent, data: { state: 'auth' } },
   { path: 'cart', component: CartComponent, data: { state: 'cart' } },
