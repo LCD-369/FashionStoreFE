@@ -5,7 +5,7 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-marketing-category',
   templateUrl: './marketing-category.component.html',
-  styleUrls: ['./marketing-category.component.css']
+  styleUrls: ['./marketing-category.component.min.css']
 })
 export class MarketingCategoryComponent implements OnInit {
   showNavigationArrows: boolean;
@@ -32,5 +32,7 @@ export class MarketingCategoryComponent implements OnInit {
   onLoadFeaturette() {
     this.router.navigate(['featurette']);
   }
+
+
 
 }

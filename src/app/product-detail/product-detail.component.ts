@@ -39,17 +39,13 @@ export class ProductDetailComponent implements OnInit {
   }
 
   private showAlert() {
-
     const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
       AlertComponent
     );
     const hostViewContainerRef = this.alertHost.viewContainerRef;
     hostViewContainerRef.clear();
-
     const componentRef = hostViewContainerRef.createComponent(alertCmpFactory);
-
     componentRef.instance.message = 'Product added to cart';
-
     this.closeSub = componentRef.instance.close.subscribe(() => {
       this.closeSub.unsubscribe();
       hostViewContainerRef.clear();

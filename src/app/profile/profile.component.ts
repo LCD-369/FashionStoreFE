@@ -13,7 +13,7 @@ import { PlaceholderDirective } from '../shared/placeholder/placeholder.directiv
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.min.css']
 })
 export class ProfileComponent implements OnInit {
   @ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;

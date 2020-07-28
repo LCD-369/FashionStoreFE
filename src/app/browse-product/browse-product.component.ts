@@ -33,7 +33,7 @@ export class BrowseProductComponent implements OnInit {
   ShowParentComponent: boolean;
   length: number;
   currentProduct: Product;
-  isLoading: boolean;
+  isLoading = true;
   page: number = 1;
 
 

@@ -10,7 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CarouselModule, ButtonsModule, WavesModule, CardsModule, NavbarModule } from 'angular-bootstrap-md';
+import { ButtonsModule, WavesModule, CardsModule, NavbarModule } from 'angular-bootstrap-md';
 import * as fromApp from './store/app.reducer';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -65,7 +65,6 @@ import { BrowseProductComponent } from './browse-product/browse-product.componen
     CoreModule,
     NgxPaginationModule,
     ButtonsModule, WavesModule, CardsModule, NavbarModule,
-    CarouselModule.forRoot(),
     FontAwesomeModule,
   ],
   providers: [OrderService, ProductService, MemberService, CouponService],

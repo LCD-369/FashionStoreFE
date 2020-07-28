@@ -1,4 +1,5 @@
 <app-header></app-header>
-<div [@fromBottomEasing]="getState(o)" class="routeContainer">
+
+<div [@fromBottomEasing]="getState(o)" [@fromTopEasing]="getState(o)" class="routeContainer">
   <router-outlet #o="outlet"></router-outlet>
 </div>

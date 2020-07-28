@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, ComponentFactoryResolver, ViewChild } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Component, OnInit, ComponentFactoryResolver, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
@@ -14,23 +14,24 @@ import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
   @ViewChild(PlaceholderDirective, {static: false}) alertHost: PlaceholderDirective;
-  isAuthenticated = false;
-  productsInCart = false;
+  @Output() close: EventEmitter<boolean> = new EventEmitter<boolean>();
   private userSub: Subscription;
   private closeSub: Subscription;
   private cartSub: Subscription;
+  isAuthenticated = false;
+  productsInCart = false;
   cartLength: number;
   faShoppingCart = faShoppingCart;
   faUser = faUser;
-
 
   constructor(private router: Router, private store: Store<fromApp.AppState>,
     private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit() {
-    this.onLoadHome();
+    this.router.navigate(['/home']);
     this.userSub = this.store
       .select('auth')
       .pipe(map(authState => authState.user))
@@ -47,33 +48,12 @@ export class HeaderComponent implements OnInit {
       });
   }
 
+  onLoad() {
+    this.close.emit(false);
+  }
+
   onLogout() {
     this.store.dispatch(new AuthActions.Logout());
-    this.showAlert();
-  }
-
-  onLoadHome() {
-    this.router.navigate(['/home']);
-  }
-
-  onLoadMaleBrowse() {
-    this.router.navigate(['browse/men']);
-  }
-
-  onLoadFemaleBrowse() {
-    this.router.navigate(['browse/women']);
-  }
-
-  onLoadChildrenBrowse() {
-    this.router.navigate(['browse/children']);
-  }
-
-  onLoadShoesBrowse() {
-    this.router.navigate(['browse/shoes']);
-  }
-
-  onLoadAccessoryBrowse() {
-    this.router.navigate(['browse/accessory']);
   }
 
   onLoadProfile() {

@@ -1,57 +1,38 @@
-<div class="marketingblock">
-
-    <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'" [isControls]="false">
-
-      <mdb-carousel-item>
-        <div class="view">
-          <img class="d-block" src="assets/images/mclothing.jpg" alt="First slide" style="width: 100vw">
-          <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
-        </div>
-        <div class="carousel-caption animated fadeInLeft">
-          <div class="animated fadeInDown delay-1s">
-            <p class="lead p-1" style="font-size: 3vw; line-height: 130%;"><span class="bigFont">Find Stylish and Classy Clothing For Men</span><br />Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.</p>
-            <a routerLink="/browse/men" href="#">Shop men</a>
-          </div>
-        </div>
-      </mdb-carousel-item>
-
-      <mdb-carousel-item>
-        <div class="view">
-          <img class="d-block" src="assets/images/wclothing.jpg" alt="Second slide" style="width: 100vw">
-          <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
-        </div>
-        <div class="carousel-caption animated fadeInLeft">
-          <div class="animated fadeInDown delay-1s">
-            <p class="lead p-1" style="font-size: 3vw; line-height: 130%;"><span class="bigFont">New styles hitting our shelves every week</span><br />There's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.</p>
-            <a routerLink="/browse/women" href="#">Shop women</a>
-          </div>
-        </div>
-      </mdb-carousel-item>
-
-      <mdb-carousel-item>
-        <div class="view">
-          <img class="d-block" src="assets/images/kclothing.jpg" alt="Third slide" style="width: 100vw">
-          <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
-        </div>
-        <div class="carousel-caption animated fadeInLeft">
-          <div class="animated fadeInDown delay-1s">
-            <p class="lead p-1" style="font-size: 3vw; line-height: 130%;"><span class="bigFont">Designer Clothing & Accessories for kids</span><br /> Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.</p>
-            <a routerLink="/browse/children" href="#">Shop children</a>
-          </div>
-      </div>
-      </mdb-carousel-item>
-
-    </mdb-carousel>
-  <p class="sectionheader">SUMMER 2020</p>
-
-    <img class="center" src="assets/images/FRUlogo.png" width="50%" height="auto" alt="Brand Logo" />
-
-  <div (click)="onLoadFeaturette()" style="text-align: center; position: relative; z-index: 2; background-color: transparent; margin-left: auto; margin-right: auto; margin-top: 3%">
-    <span class="iconArrow"><fa-icon [icon]="faAngleDown" size="5x"></fa-icon></span>
+<div class="myCarousel">
+  <div class="carousel-caption1">
+    <p class="caption">
+      <span class="bigFont">Find Stylish and Classy Clothing For Men</span>
+      <br />Check Out New Arrivals! Shop our luxe, laidback selections of sport shirts, sweaters, jackets, footwear and more.
+    </p>
+    <a routerLink="/browse/men" href="#">Shop men</a>
+  </div>
+  <div class="carousel-caption2">
+    <p class="caption">
+      <span class="bigFont">New styles hitting our shelves every week</span>
+      <br />There's no better place to shop women's clothes online! Shop sexy club dresses, jeans, shoes, skirts and more.
+    </p>
+    <a routerLink="/browse/women" href="#">Shop women</a>
+  </div>
+  <div class="carousel-caption3">
+    <p class="caption">
+      <span class="bigFont">Designer Clothing & Accessories for kids</span>
+      <br />Get the Newest Spring-Summer 20 Looks from the Latest Designer Clothes for Kids.
+    </p>
+    <a routerLink="/browse/children" href="#">Shop children</a>
   </div>
 </div>
-<!-- <div class="sticky" style="display: block; bottom: 0; margin-left: auto; margin-right: auto; height: auto;">
-  <p class="lead text-white text-center" style="margin-left: auto; margin-right: auto;">
-    Copyright ©<span>{{year}}</span> Louis Diaz - All Rights Reserved.
-  </p>
-</div> -->
+
+<br />
+
+<div class="sectionheader shadow-lg">
+  <img class="center" src="assets/images/FRUlogo.png" alt="Brand Logo" />
+  <p>Summer Wear <span class="bigFont2">&</span> Fitness Gear</p>
+
+</div>
+<div class="animated fadeInLeft" (click)="onLoadFeaturette()" (mouseover)="onLoadFeaturette()"
+  style="text-align: center; position: relative; z-index: 20; background-color: transparent; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0;">
+  <span class="iconArrow">
+    <fa-icon [icon]="faAngleDown" size="4x"></fa-icon>
+  </span>
+  <hr />
+</div>

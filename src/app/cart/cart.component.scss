@@ -1,6 +1,5 @@
 :host {
-  width: 100vw;
-  height: 100%;
+  width: 100%;
   margin-right: auto;
   margin-left: auto;
   position: relative;
@@ -8,13 +7,9 @@
 
 .mainblock {
   display: block;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   align-items: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/assets/images/lights3.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
 }
 
 .pageClass {
@@ -45,10 +40,28 @@
   margin-top: 1vh;
 }
 
+@media (min-width: 1200px) {
+  .sectionheader {
+    font-size: 6rem;
+    -webkit-text-fill-color: #d9d7cf;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 1199px) {
+  .sectionheader {
+    font-size: 4rem;
+    -webkit-text-fill-color: #d9d7cf;
+  }
+}
+
+@media (max-width: 499px) {
+  .sectionheader {
+    font-size: 3rem;
+    -webkit-text-fill-color: #d9d7cf;
+  }
+}
+
 .sectionheader {
-  font-size: 7em;
-  -webkit-text-stroke: 2px white;
-  -webkit-text-fill-color: transparent;
   font-weight: 400;
   line-height: 1 !important;
   text-align: center;

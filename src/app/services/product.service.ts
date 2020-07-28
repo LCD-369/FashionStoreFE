@@ -9,8 +9,8 @@ import { Product } from '../models/Product';
   providedIn: 'root'
 })
 export class ProductService {
-  // getUrl = 'http://localhost:3000/api/products';
-  getUrl = 'http://www.fashionrusbackend.com:3000/api/products';
+  getUrl = 'http://localhost:3000/api/products';
+  // getUrl = 'http://www.fashionrusbackend.com:3000/api/products';
   constructor(private http: HttpClient) { }
 
 
